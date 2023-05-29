@@ -1,0 +1,142 @@
+
+{% extends './index.html' %}
+{% block title %}{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  {% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
+{% endblock %}
+</head>
+{% block body %}
+<body>
+    <div class="container-fluid">
+        <div class="row"> 
+
+            <div class="col-6">
+                <div class="p-1 mb-2 bg-dark text-white"><h3>Nuevo Usuario</h3></div>
+                <form method="post" action="nuevo.php">
+                    
+    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar nombres" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+    
+                    
+    
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar apellidos" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+            
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-gender-ambiguous"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar Genero" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    
+            
+                   
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-lines-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar Usuario" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                  
+            
+                
+                  
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar Contraseña" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+    
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar Perfil" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    
+    
+                  
+
+                    <div class="container">
+                        <div class="row justify-content-md-left">
+                        <div class="ml-2 col-sm-4">
+                        <div id="msg"></div>
+                        <form method="post" id="image-form" enctype="multipart/form-data" onSubmit="return false;">
+                        <div class="form-group">
+                        <input type="file" name="file" class="file">
+                        <div class="input-group my-3 ">
+                        <input type="text" class="form-control" disabled placeholder="Cargar imagen" id="file">
+                        <div class="input-group-append">
+                        <button type="button" class="browse btn btn-primary">Browse...</button>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <img src="./img/80x80.png" id="preview" class="img-thumbnail">
+                        </div>
+                        <div class="form-group">
+                        <button name="submit" class="btn btn-danger btn-block">Cargar imagen</button>
+                        </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+                   
+                    
+                    <br><br>
+                                    
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                        <button type="button" class="btn btn-secondary ">
+                            <i class="bi bi-box-arrow-left text-light"></i> Salir
+                        </button>
+
+                        <button type="button" class="btn btn-secondary">
+                            <i class="bi bi-trash text-light"></i> Limpiar
+                        </button>
+
+                        <button type="button" class="btn btn-success">
+                            <i class="bi bi-save-fill text-light"></i> Guardar Usuario
+                        </button>
+                        
+                        
+                        </div>
+                   
+                 
+                  
+                  
+    
+                   
+                </form>
+            </div>
+
+        </div>
+        
+    </div>
+        
+
+
+</body>
+{% endblock %}
+</html>

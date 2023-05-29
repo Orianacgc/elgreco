@@ -1,0 +1,92 @@
+{% extends './index.html' %}
+{% block title %}{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  {% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
+{% endblock %}
+</head>
+{% block body %}
+<body>
+    <div class="container-fluid">
+        <div class="row"> 
+
+            <div class="col-6">
+               
+                <div class="p-1 mb-2 bg-dark text-white"><h3>Nuevo Insumo</h3></div>
+                <form method="post" action="nuevo.php">
+                    
+    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-tools"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar insumo" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+    
+                    
+    
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-tag-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar precio" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+            
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-plus-circle-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar cantidad" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    
+            
+                   
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-earmark-text-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar descripción" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    
+
+                    <br><br>
+                                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                    <button type="button" class="btn btn-secondary ">
+                        <i class="bi bi-box-arrow-left text-light"></i> Salir
+                    </button>
+
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-trash text-light"></i> Limpiar
+                    </button>
+
+                    <button type="button" class="btn btn-success">
+                        <i class="bi bi-save-fill text-light"></i> Guardar Insumo
+                    </button>
+                    
+                    
+                    </div>
+    
+                   
+                </form>
+            </div>
+
+        </div>
+        
+    </div>
+        
+
+
+</body>
+{% endblock %}
+</html>

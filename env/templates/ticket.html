@@ -1,0 +1,137 @@
+{% extends './index.html' %}
+{% block title %}{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  {% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ticket.css') }}">
+{% endblock %}
+</head>
+{% block body %}
+<body>
+    <div class="container-fluid">
+        <div class="row"> 
+
+            <div class="col-6">
+                <div class="p-1 mb-2 bg-dark text-white"><h3>Ticket-Total Venta $</h3></div>
+                <form method="post" action="nuevo.php">
+
+
+                    <a class="navbar-brand " href="#" >
+                        <img class="rounded float-start" src="{{ url_for('static', filename='img/elgreco_logo.png') }}" color="black" height="45" alt="Logo"
+                          loading="lazy"  />
+                    </a>
+                    
+                    <div class="p-1 mb-2 col-10 text-black text-end">
+                        <p class="lead">Fecha:</p>
+                        <p class="lead">Hora:</p>
+                    </div>
+                       
+                    <div class="p-1 mb-2  text-black text-start">
+                        
+
+                        <ul class="list-unstyled lead">
+                            <li>Comprobante ID:</li>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <li>Método de pago:</li>
+                                   
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <select class="custom-select d-block w-100" id="pago" required>
+                                        <option value="">Elegir...</option>
+                                        <option>Efectivo</option>
+                                        <option>Tarjeta débito</option>
+                                        <option>Tarjeta crédito</option>
+
+                                      </select>
+                                      <div class="invalid-feedback">
+                                        Please select a valid country.
+                                      </div>
+
+                                </div>
+                            </div>
+                           
+                            <li>ID Cliente:</li>
+                            <li>Cliente:</li>
+                            <li>Teléfono:</li>
+                            <li>Fecha entrega:</li>
+                        </ul>
+                    </div>
+                    
+                    	
+                        <hr />
+                
+                    
+                        <div class="container">  
+                            
+                            <div class="row ">  
+                                <div class="col-md-2 py-2" > <p><strong>Cant.</strong></p></div>     
+                                <div class="col-md-4 py-2" ><p><strong>Descripción</strong></p></div>  
+                                <div class="col-md-3 py-2" ><p><strong>Precio Unit.</strong></p></div>  
+                                <div class="col-md-2 py-2" ><p><strong>Total</strong></p></div>  
+                                
+                                <div class="w-100"></div>
+                                 <br /> 
+                                <div class="d-grid gap-2 d-md-flex">
+                                    <ul class="list-unstyled 
+                                    ">
+                                        <li><strong>SUB TOTAL:</strong></li>
+                                        <li>DESCUENTO:</li>
+                                        <li>%IVA:</li>
+                                        <li>TOTAL:</li>
+                                        <li>ABONO:</li>
+                                        <li>SALDO:</li>
+                                    </br>
+                                        <li>SU PAGO:</li>
+                                        <li>CAMBIO:</li>
+
+                                    </ul>
+                                </div>
+                                 
+                            </div>
+                          </div>
+                           
+                    
+                    <br><br>
+                                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                    <button type="button" class="btn btn-secondary ">
+                        <i class="bi bi-box-arrow-left text-light"></i> Salir
+                    </button>
+
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-search text-light"></i> Vista previa
+                    </button>
+
+                    <button type="button" class="btn btn-success">
+                        <i class="bi bi-save-fill text-light"></i> Guardar 
+                    </button>
+
+                    <button type="button" class="btn btn-primary">
+                        <i class="bi bi-printer-fill text-light"></i> Imprimir
+                    </button>
+
+                  
+                    
+                    
+                    </div>
+    
+                   
+                </form>
+            </div>
+
+        </div>
+        
+    </div>
+        
+
+
+</body>
+{% endblock %}
+</html>
