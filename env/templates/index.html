@@ -20,7 +20,7 @@
 </head>
 
 <body class="text-center">
-    {% block body %}
+
     <form class>
  
         <!--Main Navigation-->
@@ -79,7 +79,7 @@
          <!-- Sidebar -->
        
          <!-- Navbar -->
-         <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light  fixed-top">
+         <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light  fixed-top ">
            <!-- Container wrapper -->
            <div class="container-fluid">
              
@@ -148,11 +148,12 @@
        </main>
        <!--Main layout-->
      </form>
-    {% endblock %}
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
+ {% block contenido %}   {% endblock %}
 </body>
 
 

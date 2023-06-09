@@ -1,0 +1,206 @@
+
+
+{% extends './index.html' %}
+
+{% block titulo %}
+Agregar venta
+{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<form class>
+ 
+   
+  
+  <!--Main Navigation-->
+ 
+  <!--Main layout-->
+  <main style="margin-top: 0px;">
+    <div class="container pt-4"></div>
+    <div class="container">
+      <div class="col py-3">
+        <h4 class="text-start">Cotizaciones</h4>
+      </div>
+   
+      <form class="form-inline">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <button type="submit" class="btn btn-secondary mb-2"><i class="bi bi-arrow-90deg-left"></i> Regresar</button>
+          </div>
+            
+          <div class="col-auto">
+            <button type="submit" class="btn btn-danger mb-2"><i class="bi bi-x-circle"></i> Calcelar</button>
+            
+          </div>
+     
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2"><i class="bi bi-check2"></i> Finalizar</button>
+          </div>   
+          <hr style="color: #595959;" />
+         
+        </div>
+        <div class="w-100"></div>
+        <br />  
+        <dvi class="row justify-content-center"> 
+
+          <div class="col-auto">
+              <label class="sr-only" for="inlineFormInputName2">Cotización N°:
+                
+              </label>
+          </div>
+
+          <div class="col-3">
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="N°">
+          </div>
+
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputName2">Fecha*:
+              
+            </label>
+        </div>
+
+        <div class="col-3">
+          <input type="text" class="form-control" id="inlineFormInput" placeholder="fecha">
+        </div>
+
+  
+        <div class="row g-3 align-items-center">
+          <div class="col-1">
+                <label class="sr-only" for="inlineFormInputName2">Cliente*</label>
+          </div>
+            
+          <div class="col-6">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ingresa el cliente">
+            
+          </div>
+                
+          <div class="col-2">
+                <button type="submit" class="btn btn-secondary mb-2"><i class="bi bi-search"></i> Buscar Cliente</button>
+          </div>   
+
+                  
+          <div class="col-2">
+            <button type="submit" class="btn btn-success mb-2"><i class="bi bi-plus-circle"></i> Agregar Cliente</button>
+      </div>  
+        </div>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-1">
+                <label class="sr-only" for="inlineFormInputName2">Dirección:</label>
+          </div>
+            
+          <div class="col-6">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="">
+            
+          </div>
+                
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputName2">Teléfono:</label>
+          </div>  
+          
+          <div class="col-3">
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="">
+        
+          </div>
+        </div>
+
+        
+        <div class="row g-3 align-items-center">
+          <div class="col-1">
+                <label class="sr-only" for="inlineFormInputName2">Correo electrónico:</label>
+          </div>
+            
+          <div class="col-6">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="">
+            
+          </div>
+
+          <div class="col-auto">
+
+            <button type="button" class="btn btn-danger">
+              <i class="bi bi-trash text-light"></i> Limpiar
+            </button>
+            
+            
+            
+          </div>
+
+          <div class="col-auto">
+
+            <button type="button" class="btn btn-success">
+              <i class="bi bi-save-fill"></i> Guardar
+            </button>
+            
+            
+            
+          </div>
+
+          <div class="col-auto">
+
+            <button type="button" class="btn btn-primary">
+              <i class="bi bi-printer-fill"></i> Imprimir
+            </button>
+            
+            
+            
+          </div>
+                
+          
+        </div>
+        
+      </form>
+    </div>
+
+      
+     
+
+      <div class="container">
+
+        
+          
+             
+        
+          
+          <div class="container">  
+            <h6>Detalle de Cotización</h6>  
+            <div class="row ">  
+                <div class="col-md-1 py-2" style="background-color:#808080">Código</div>  
+                <div class="col-md-1 py-2" style="background-color:#808080">Cant.</div>  
+                <div class="col-md-2 py-2" style="background-color:#808080">Producto</div>  
+                <div class="col-md-3 py-2" style="background-color:#808080">Descripción</div>  
+                <div class="col-md-2 py-2" style="background-color:#808080">Precio Unit.</div>  
+                <div class="col-md-1 py-2" style="background-color:#808080">Total</div>  
+                <div class="col-md-2 py-2" style="background-color:#808080">Acciones</div>  
+                <div class="w-100"></div>
+                 <br /> 
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <h6>Total:</h6>
+                </div>
+                 
+            </div>
+          </div>
+           
+
+      
+
+          <div class="form-floating col-6">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Observasiones</label>
+          </div>
+
+          <div class="w-100"></div>
+          <br /> 
+         
+        </form>
+      </div>
+      
+    
+    
+    
+  </main>
+  <!--Main layout-->
+</form>
+{% endblock %}

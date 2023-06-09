@@ -1,0 +1,144 @@
+
+{% extends './index.html' %}
+{% block title %}{% endblock %}
+
+
+  {% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
+{% endblock %}
+
+{% block contenido %}
+
+<form class >
+<main style="margin-top: 0px;">
+    <div class="container pt-6">
+        <div class="row"> 
+          
+
+            <div class="col-6">
+                <div class="p-1 mb-2 bg-dark text-white"><h3>Nuevo Cliente</h3></div>
+                <form action="{{url_for('guardar_cliente')}}" method="post">
+                    
+    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar nombres" aria-label="Username" aria-describedby="basic-addon1" name="nombre" id="nombre">
+                    </div>
+    
+                    
+    
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar apellido P" aria-label="Username" aria-describedby="basic-addon1" name=" aPaterno" id=" aPaterno">
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Ingresar apellido M" aria-label="Username" aria-describedby="basic-addon1" name=" aMaterno" id=" aMaterno">
+                  </div>
+            
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar teléfono" aria-label="Username" aria-describedby="basic-addon1" name="telefono" id="telefono">
+                    </div>
+                    
+            
+                   
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar Email" aria-label="Username" aria-describedby="basic-addon1" name="email" id="email">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ingresar Calle" aria-label="Username" aria-describedby="basic-addon1" name="calle" id="calle">
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Ingresar Número Exterior" aria-label="Username" aria-describedby="basic-addon1"name="numero_exterior" id="numero_exterior">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Ingresar Número Interior" aria-label="Username" aria-describedby="basic-addon1"name="numero_interior" id="numero_interior">
+                </div>
+                
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Colonia" aria-label="Username" aria-describedby="basic-addon1" name="colonia" id="colonia">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="CP" aria-label="Username" aria-describedby="basic-addon1"name="CP" id="CP">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="RFC" aria-label="Username" aria-describedby="basic-addon1"name="RFC" id="RFC">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Regimen" aria-label="Username" aria-describedby="basic-addon1"name="regimen" id="regimen">
+        </div>
+                  
+                   
+    
+                  
+
+                    <br><br>
+                                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                    <button type="button" class="btn btn-secondary ">
+                        <a href="{{url_for('clientes')}}" class="bi bi-box-arrow-left text-light"></a> Salir
+                    </button>
+
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-trash text-light"></i> Limpiar
+                    </button>
+
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save-fill text-light"></i> Guardar Cliente
+                    </button>
+                    
+                    
+                    </div>
+    
+                   
+                </form>
+            </div>
+          
+        </div>
+        
+    </div>
+        
+
+
+</main>
+</form>
+{% endblock %}

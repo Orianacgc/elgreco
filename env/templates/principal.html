@@ -1,0 +1,174 @@
+{% extends './index.html' %}
+
+{% block titulo %}
+Agregar venta
+{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<form class>
+ 
+   
+  
+  <!--Main Navigation-->
+ 
+  <!--Main layout-->
+  <main style="margin-top: 0px;">
+    
+    <div class="container pt-4 ">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-success">
+                <i class="bi bi-plus-circle-fill text-light "></i> Nueva Venta
+            </button>
+        </div>
+        <h4 class="text-start">Bienvenido Orina</h4>
+        <p class="text-start">Inicia una nueva venta</p>
+        <hr style="color: #595959;" />
+        
+    </div>
+    <div class="container">
+        <form class="form-inline">
+  
+            
+         <div class="row ">
+           
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ventas del día</h5>
+                        <p class="card-text h2">$10,564.00</p>
+                        <p class="card-text"style=" color:green;"><i class="bi bi-caret-up-square-fill " style=" color:green;"></i> +36.67 %</p>
+                     
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ingresos del ultimo mes</h5>
+                        <p class="card-text h2">$10,564.00</p>
+                        <p class="card-text"style=" color:green;"><i class="bi bi-caret-up-square-fill " style=" color:green;"></i> +36.67 %</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total de ventas</h5>
+                        <p class="card-text h2">$10,564.00</p>
+                        <p class="card-text"style=" color:green;"><i class="bi bi-caret-up-square-fill " style=" color:green;"></i> +36.67 %</p>
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+         </div>
+            
+        </form>
+
+    </div>
+    </br>
+    
+    <div class="container">
+
+    <div id="contenedor" class="row">
+      <div id="naranja" class="col-8 my-auto mx-auto">
+        <div class="row">
+       
+          <div class="col-7">
+          </br>
+            <h5 class="card-title">Numero de pedidos pagados pendientes</h5>
+          </div>
+
+          <div  class="col-5">
+          </br>
+            <p class="card-text"><i class="bi bi-calendar-fill"></i> Enero-Abril 2023</p>
+          </div>
+
+        </div>
+        <hr style="color: #595959;" />
+        
+      </div>
+                
+      <div id="verde" class="col-3 my-auto mx-auto"> 
+
+      </br>
+      </br>
+
+        <div class="card" style="width: 15rem;">
+          <h5 class="card-title">Productos con poco stock</h5>
+          <div class="card-body">
+            <h6 class="card-title text-start"><i class="bi bi-caret-up-square-fill " style=" color:red;"></i> Moldura #02</h6>
+            <p class="card-text text-start">Stock 3pz</p>
+            <hr style="color: #595959;" />
+            <h6 class="card-title text-start"><i class="bi bi-caret-up-square-fill" style=" color:red;"></i> Moldura #07</h6>
+            <p class="card-text text-start">Stock 1pz</p>
+            <hr style="color: #595959;" />
+            <h6 class="card-title text-start"><i class="bi bi-caret-up-square-fill" style=" color:red;"></i> Moldura #04</h6>
+            <p class="card-text text-start">Stock 3pz</p>
+            <a href="#" class="btn btn-primary">Agregar a lista</a>
+          </div>
+        </div>   
+        <div class="card" style="width: 15rem;">
+          <div class="card-body">
+            <h5 class="card-title">Productos más vendidos</h5>
+            <h6 class="card-title text-start"><i class="bi bi-caret-up-square-fill"></i> Moldura #02 100 pz</h6>
+            <hr style="color: #595959;" />
+            <h6 class="card-title text-start"><i class="bi bi-caret-up-square-fill"></i> Moldura cajoncito 150 pz</h6>
+          
+          </div>
+        </div>   
+        
+
+      </div>
+    </div>
+     
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="button" class="btn btn-secondary">
+          <i class="bi bi-download text-light "></i> Descargar Reporte
+        </button>
+     
+  </div>
+   
+    </div>
+        
+
+
+    
+
+  
+    <br /> 
+   	
+	
+    
+    
+         
+                
+              
+               
+    
+          
+    
+
+    
+
+      
+   
+          
+       
+         
+        </form>
+      </div>
+      
+    
+    
+    
+  </main>
+  <!--Main layout-->
+</form>
+{% endblock %}

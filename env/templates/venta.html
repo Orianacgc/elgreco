@@ -1,12 +1,16 @@
+
+
 {% extends './index.html' %}
 
-{% block title %}Venta{% endblock %}
+{% block titulo %}
+Agregar venta
+{% endblock %}
 
 {% block customCSS %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
 {% endblock %}
 
-{% block body %}
+{% block contenido %}
 <form class>
  
    
@@ -14,7 +18,7 @@
   <!--Main Navigation-->
  
   <!--Main layout-->
-  <main style="margin-top: 58px;">
+  <main style="margin-top: 0px;">
     <div class="container pt-4"></div>
     <div class="container">
       <div class="col py-3">

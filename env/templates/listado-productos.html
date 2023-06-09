@@ -1,0 +1,162 @@
+{% extends './index.html' %}
+
+{% block titulo %}
+Agregar venta
+{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<form class>
+ 
+   
+  
+  <!--Main Navigation-->
+ 
+  <!--Main layout-->
+  <main style="margin-top: 0px;">
+    <div class="container pt-4 ">
+        <h4 class="text-start">Listado de productos</h4>
+        <p class="text-start">Administrar productos</p>
+    </div>
+    <div class="container">
+      <form class="form-inline">
+        <div class="row ">
+          <div class="col-auto">
+                <label class="sr-only" for="inlineFormInputName2">Mostrar</label>
+          </div>
+            
+          <div class="col-1">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="número">
+            
+          </div>
+                
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputName2">registros</label>
+          </div>   
+
+
+          
+          <div class="col-auto">
+
+           
+            <button type="button" class="btn btn-success">
+                <i class="bi bi-plus-circle-fill text-light "></i> Nuevo Producto
+            </button>
+           
+           
+         </div>
+         
+        </div>
+
+        <hr style="color: #595959;" />
+        
+      </form>
+    </div>
+    
+    <div class="w-100"></div>
+  
+    <br /> 
+   	
+	
+    <div class="container"> 
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Material</th>
+                <th scope="col">Color</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for producto in productos %}
+              <tr>
+                  <td>{{producto[0]}}</td>
+                  <td>{{producto[1]}}</td>
+                  <td>{{producto[2]}}</td>
+                  <td>{{producto[4]}}</td>
+                  <td>{{producto[7]}}</td>
+                  <td>{{producto[3]}}</td>
+                  <td>{{producto[6]}}</td>
+                  <td></td>
+                 
+              
+                <td><img style='width:40px; height:40px' src="..." class="rounded mx-auto d-block" alt="..."></td>
+                <td>
+                  <button type="button" class="btn btn-success" style='width:100px; height:40px'>
+                    <i class=" text-light "></i> Activo
+                </button>
+                </td>
+                <td>  
+                  <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <button  class="btn btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                    </div>
+                    <div class="col-auto">
+                        <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+              
+              
+            </tbody>
+          </table>
+    
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link">Anterior</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-secondary">
+                            <i class="bi bi-download text-light "></i> Descargar Reporte
+                          </button>
+                       
+                    </div>
+                     
+                
+              
+               
+    
+          
+    
+
+    </div>
+
+      
+   
+          
+          
+          <br /> 
+         
+        </form>
+      </div>
+      
+    
+    
+    
+  </main>
+  <!--Main layout-->
+</form>
+{% endblock %}

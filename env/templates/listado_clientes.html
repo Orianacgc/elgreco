@@ -1,0 +1,175 @@
+{% extends './index.html' %}
+
+{% block titulo %}
+Agregar venta
+{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<form class>
+ 
+   
+  
+  <!--Main Navigation-->
+ 
+  <!--Main layout-->
+  <main style="margin-top: 0px;">
+    <div class="container pt-4 ">
+        <h4 class="text-start">Clientes</h4>
+        <p class="text-start">Administrar clientes</p>
+    </div>
+    <div class="container">
+      <form class="form-inline">
+        <div class="row ">
+          <div class="col-auto">
+                <label class="sr-only" for="inlineFormInputName2">Mostrar</label>
+          </div>
+            
+          <div class="col-1">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="número">
+            
+          </div>
+                
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputName2">registros</label>
+          </div>   
+
+
+          
+          <div class="col-auto">
+
+           
+            <button  type="button" class="btn btn-success">
+                <a href="{{url_for('formulario_agregar_cliente')}}" class="bi bi-plus-circle-fill text-light "></a> Agregar Cliente
+            </button>
+            
+          
+           
+         </div>
+         
+        </div>
+
+        <hr style="color: #595959;" />
+        
+      </form>
+    </div>
+    
+    <div class="w-100"></div>
+  
+    <br /> 
+   	
+	
+    <div class="container"> 
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">CP</th>
+                <th scope="col">RFC</th>
+                <th scope="col">Regimen</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for cliente in clientes %}
+              <tr>
+
+                  <td>{{cliente[1]}}</td>
+                  <td>{{cliente[4]}}</td>
+                  <td>{{cliente[2]}} {{cliente[3]}}</td>
+                  <td>{{cliente[5]}}</td>
+                  <td>{{cliente[6]}}</td>
+                  <td>{{cliente[7]}} {{cliente[8]}} {{cliente[9]}} {{cliente[10]}}</td>
+                  <td>{{cliente[11]}}</td>
+                  <td>{{cliente[12]}}</td>
+                  <td>{{cliente[13]}}</td>
+
+
+
+              
+                  <td>
+                    {# Pasar el id (lo que hay en cliente[0] #}
+                    {# <a href="{{url_for('editar-cliente', id=cliente[0])}}" class="button is-info">Editar</a>#}
+                    
+                    <div class="row justify-content-center">
+                      <div class="col-auto">
+                          <button  class="btn btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                      </div>
+                    </div>
+                    
+                    {#{{url_for('eliminar_cliente')}}#}
+                      <form action="" method="POST">
+
+                          <div class="row justify-content-center">
+                            <input type="hidden" name="id" value="{{cliente[0]}}">
+                            <div class="col-auto">
+                                <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                            </div>
+                          </div>
+                          
+                      </form>
+                  </td>
+
+
+
+
+              </tr>
+              {% endfor %}
+      
+            </tbody>
+          </table>
+    
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link">Anterior</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-secondary">
+                            <i class="bi bi-download text-light "></i> Descargar Reporte
+                          </button>
+                       
+                    </div>
+                     
+                
+              
+               
+    
+          
+    
+
+    </div>
+
+      
+   
+          
+          
+          <br /> 
+         
+        </form>
+      </div>
+      
+    
+    
+    
+  </main>
+  <!--Main layout-->
+</form>
+{% endblock %}
