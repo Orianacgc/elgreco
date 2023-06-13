@@ -89,9 +89,9 @@
                  loading="lazy" />
              </a>
              <!-- Search form -->
-             <form class="d-none d-md-flex input-group w-auto my-auto">
+             <form class="d-none d-md-flex input-group w-auto my-auto " name="formSearch" method="POST" action="{{ url_for('buscar_cliente') }}" class="search" autocomplete="off">
                <div class="input-group">
-                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                 <input type="search" name="buscar" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                  <button type="button" class="btn btn-outline-primary">search</button>
                </div>
                

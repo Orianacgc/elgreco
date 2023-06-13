@@ -1,6 +1,6 @@
 
 {% extends './index.html' %}
-{% block title %}{% endblock %}
+{% block title %}Editar Cliente {% endblock %}
 
 
   {% block customCSS %}
@@ -16,32 +16,35 @@
           
 
             <div class="col-6">
-                <div class="p-1 mb-2 bg-dark text-white"><h3>Nuevo Cliente</h3></div>
-                <form action="{{url_for('guardar_cliente')}}" method="POST">
+                <div class="p-1 mb-2 bg-dark text-white"><h3>Editar Cliente</h3></div>
+                <form action="{{url_for('actualizar_cliente')}}" method="POST">
                     
+                    {# Enviar el id en un campo oculto #}
+                    
+                    <input type="hidden" name="idcliente" value="{{cliente[0]}}">
     
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar nombres" name="nombre" id="nombre">
+                        <input value="{{cliente[3]}}" type="text" class="form-control" placeholder="Ingresar nombres" name="nombre" id="nombre">
                     </div>
     
-                    
+                
     
                     
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar apellido P"  name="aPaterno" id="aPaterno">
+                        <input value="{{cliente[1]}}" type="text" class="form-control" placeholder="Ingresar apellido P"  name="aPaterno" id="aPaterno">
                     </div>
 
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Ingresar apellido M" name="aMaterno" id="aMaterno">
+                      <input value="{{cliente[2]}}" type="text" class="form-control" placeholder="Ingresar apellido M" name="aMaterno" id="aMaterno">
                   </div>
             
                     
@@ -49,7 +52,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar teléfono"  name="telefono" id="telefono">
+                        <input value="{{cliente[4]}}"  type="text" class="form-control" placeholder="Ingresar teléfono"  name="telefono" id="telefono">
                     </div>
                     
             
@@ -58,56 +61,56 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
                         </div>
-                        <input type="email" class="form-control" placeholder="Ingresar Email"  name="email" id="email">
+                        <input value="{{cliente[5]}}"  type="email" class="form-control" placeholder="Ingresar Email"  name="email" id="email">
                     </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar Calle"  name="calle" id="calle">
+                        <input value="{{cliente[6]}}"  type="text" class="form-control" placeholder="Ingresar Calle"  name="calle" id="calle">
                     </div>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
                       </div>
-                      <input type="number" class="form-control" placeholder="Ingresar Número Exterior" name="numero_exterior" id="numero_exterior">
+                      <input value="{{cliente[7]}}" type="number" class="form-control" placeholder="Ingresar Número Exterior" name="numero_exterior" id="numero_exterior">
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Ingresar Número Interior" name="numero_interior" id="numero_interior">
+                    <input value="{{cliente[8]}}" type="text" class="form-control" placeholder="Ingresar Número Interior" name="numero_interior" id="numero_interior">
                 </div>
-                
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Colonia"  name="colonia" id="colonia">
-              </div>
+                            
+                            <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                            </div>
+                            <input value="{{cliente[9]}}" type="text" class="form-control" placeholder="Colonia"  name="colonia" id="colonia">
+                        </div>
 
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
-                </div>
-                <input type="text" class="form-control" placeholder="CP" name="CP" id="CP">
-            </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
-              </div>
-              <input type="text" class="form-control" placeholder="RFC" name="RFC" id="RFC">
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Regimen" name="regimen" id="regimen">
-        </div>
-                  
-                   
-    
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                            </div>
+                            <input  value="{{cliente[10]}}" type="text" class="form-control" placeholder="CP" name="CP" id="CP">
+                        </div>
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                        </div>
+                        <input value="{{cliente[11]}}" type="text" class="form-control" placeholder="RFC" name="RFC" id="RFC">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                        </div>
+                        <input value="{{cliente[12]}}" type="text" class="form-control" placeholder="Regimen" name="regimen" id="regimen">
+                    </div>
+                            
+                            
+                
                   
 
                     <br><br>

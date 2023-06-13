@@ -18,8 +18,8 @@ Agregar venta
   <!--Main layout-->
   <main style="margin-top: 0px;">
     <div class="container pt-4 ">
-        <h4 class="text-start">Clientes</h4>
-        <p class="text-start">Administrar clientes</p>
+        <h4 class="text-start">Listado de usuarios</h4>
+        <p class="text-start">Administrar usuarios</p>
     </div>
     <div class="container">
       <form class="form-inline">
@@ -42,11 +42,11 @@ Agregar venta
           <div class="col-auto">
 
            
+               
             <button  type="button" class="btn btn-success">
-                <a href="{{url_for('formulario_agregar_cliente')}}" class="bi bi-plus-circle-fill text-light "></a> Agregar Cliente
-            </button>
-            
-          
+              <a href="{{url_for('formulario_agregar_usuario')}}" class="bi bi-plus-circle-fill text-light "></a> Nuevo Usuario
+          </button>
+           
            
          </div>
          
@@ -67,61 +67,59 @@ Agregar venta
         <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">No. Cliente</th>
+                <th scope="col">#</th>
+                <th scope="col">Usuario</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Email</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">CP</th>
-                <th scope="col">RFC</th>
-                <th scope="col">Regimen</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Último login</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {% for cliente in clientes %}
+              {% for cliente in usuarios %}
               <tr>
-                  <td>{{cliente[0]}}</td>
-                  <td>{{cliente[3]}}</td>
-                  <td>{{cliente[1]}}{{cliente[2]}}</td>
-                  <td>{{cliente[4]}}</td>
-                  <td>{{cliente[5]}}</td>
-                  <td>{{cliente[6]}}{{cliente[7]}}{{cliente[8]}}{{cliente[9]}}</td>
-                  <td>{{cliente[10]}}</td>
-                  <td>{{cliente[11]}}</td>
-                  <td>{{cliente[12]}}</td>
-                
+                <td>{{usuario[0]}}</td>
+                <td>{{usuario[1]}}</td>
+                <td>{{usuario[3]}}</td>
+                <td>{{usuario[4]}}</td>
               
-                  <td>
+               
+                <td></td>
+                <td>
+                  <button type="button" class="btn btn-success" style='width:100px; height:40px'>
+                    {{usuario[5]}}
+                    <i class=" text-light "></i> Activo
+                </button>
+                </td>
+                <td>{{usuario[6]}}</td>
+                <td>
+                      <div class="row justify-content-center">
+                      
 
-                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                          <button  class="btn btn btn-warning"><a href="{{url_for('editar_usuario', idUsuario=usuario[0])}}"  class="bi bi-pencil-square"></a></button>
+                        </div>
 
-                      <div class="col-auto">
-                          <button  class="btn btn btn-warning"><a href="{{url_for('editar_cliente', idcliente=cliente[0])}}"  class="bi bi-pencil-square"></a></button>
-                      </div>
-                    
-                    
-                
-                      <form action="{{url_for('eliminar_cliente')}}" method="POST">
+
+                        
+                        
+                      <form action="{{url_for('eliminar_usuario')}}" method="POST">
 
                           
-                            <input type="hidden" name="idcliente" value="{{cliente[0]}}">
-                            <div class="col-auto">
-                                <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
-                            </div>
-                          
-                          
+                        <input type="hidden" name="idUsuario" value="{{usuario[0]}}">
+                          <div class="col-auto">
+                              <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                          </div>
+                      
+                      
                       </form>
-                  </td>
-
-
-                  
-
-
+                    </div>
+                    
+                </td>
               </tr>
               {% endfor %}
-      
             </tbody>
           </table>
     

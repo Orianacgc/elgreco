@@ -2,19 +2,15 @@
 {% extends './index.html' %}
 {% block title %}{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grid</title>
+
   {% block customCSS %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
 {% endblock %}
-</head>
-{% block body %}
-<body>
-    <div class="container-fluid">
+
+{% block contenido %}
+<main style="margin-top: 0px;">
+    <div class="container pt-6">
+   
         <div class="row"> 
 
             <div class="col-6">
@@ -40,12 +36,7 @@
                     </div>
             
                     
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-gender-ambiguous"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Ingresar Genero" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
+                   
                     
             
                    
@@ -134,9 +125,9 @@
         </div>
         
     </div>
+</main>
         
 
 
-</body>
+
 {% endblock %}
-</html>
