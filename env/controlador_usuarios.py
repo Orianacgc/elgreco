@@ -1,11 +1,11 @@
 from bd import obtener_conexion
 
 
-def insertar_usuario(usuario,password,nombre,apellido,estado):
+def insertar_usuario(usuario,password,nombre,apellido,imagen,estado):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO usuario(usuario,password,nombre,apellido,estado) VALUES (%s, %s, %s,%s,%s)",
-                       (usuario,password,nombre,apellido,estado))
+        cursor.execute("INSERT INTO usuario(usuario,password,nombre,apellido,imagen,estado) VALUES (%s, %s, %s,%s,%s,%s)",
+                       (usuario,password,nombre,apellido,imagen,estado))
     conexion.commit()
     conexion.close()
 
@@ -14,7 +14,7 @@ def obtener_usuario():
     conexion = obtener_conexion()
     elgreco = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT idUsuario,usuario,password,nombre,apellido,estado FROM usuario")
+        cursor.execute("SELECT idUsuario,usuario,password,nombre,apellido,imagen,estado FROM usuario")
         elgreco = cursor.fetchall()
     conexion.close()
     return elgreco
@@ -32,16 +32,16 @@ def obtener_usuario_por_id(idUsuario):
     elgreco = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT idUsuario,usuario,password,nombre,apellido,estado FROM usuario WHERE idUsuario = %s", (idUsuario,))
+            "SELECT idUsuario,usuario,password,nombre,apellido,imagen,estado FROM usuario WHERE idUsuario = %s", (idUsuario,))
         elgreco = cursor.fetchone()
     conexion.close()
     return elgreco
 
 
-def actualizar_usuario(idUsuario,usuario,password,nombre,apellido,estado):
+def actualizar_usuario(idUsuario,usuario,password,nombre,apellido,imagen,estado):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE usuario SET  usuario = %s, password = %s, nombre = %s, apellido= %s, estado = %s WHERE idUsuario = %s",
-                       (idUsuario,usuario,password,nombre,apellido,estado))
+        cursor.execute("UPDATE usuario SET  usuario = %s, password = %s, nombre = %s, apellido= %s,imagen= %s, estado = %s WHERE idUsuario = %s",
+                       (idUsuario,usuario,password,nombre,apellido,imagen,estado))
     conexion.commit()
     conexion.close()

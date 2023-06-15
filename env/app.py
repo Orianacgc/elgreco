@@ -99,9 +99,10 @@ def guardar_usuario():
     password = request.form["password"]
     nombre = request.form["nombre"]
     apellido = request.form["apellido"]
+    imagen=request.form['imagen']
     estado = request.form["estado"]
     
-    controlador_clientes.insertar_cliente(usuario,password,nombre,apellido,estado)
+    controlador_clientes.insertar_cliente(usuario,password,nombre,apellido,imagen,estado)
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/usuarios")
 
@@ -131,9 +132,10 @@ def actualizar_usuario():
     password = request.form["password"]
     nombre = request.form["nombre"]
     apellido = request.form["apellido"]
+    imagen = request.form["imagen"]
     estado = request.form["estado"]
 
-    controlador_usuarios.actualizar_usuario(usuario,password,nombre,apellido,estado,idUsuario)
+    controlador_usuarios.actualizar_usuario(usuario,password,nombre,apellido,imagen,estado,idUsuario)
     return redirect("/usuarios")
 
 

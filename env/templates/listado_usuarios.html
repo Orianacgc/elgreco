@@ -78,22 +78,28 @@ Agregar venta
               </tr>
             </thead>
             <tbody>
-              {% for cliente in usuarios %}
+              {% for usuario in usuarios %}
               <tr>
                 <td>{{usuario[0]}}</td>
                 <td>{{usuario[1]}}</td>
                 <td>{{usuario[3]}}</td>
                 <td>{{usuario[4]}}</td>
               
-               
-                <td></td>
+                <td>
+                  {% if(usuario.imagen !="") %}
+                  <img src="{{ url_for }}{{ usuario.imagen }}" class="sin_foto_mini" alt="{{ usuario.usuario }}">
+                  {% else %}
+                  <img src="{{ url_for }}sin_foto.jpg" class="sin_foto_mini" alt="coche">
+                  {% endif %}
+                </td>
+
                 <td>
                   <button type="button" class="btn btn-success" style='width:100px; height:40px'>
-                    {{usuario[5]}}
-                    <i class=" text-light "></i> Activo
+                    
+                    <i class=" text-light "></i> {{usuario[6]}}
                 </button>
                 </td>
-                <td>{{usuario[6]}}</td>
+            
                 <td>
                       <div class="row justify-content-center">
                       

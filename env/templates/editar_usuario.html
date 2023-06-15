@@ -15,14 +15,15 @@
 
             <div class="col-6">
                 <div class="p-1 mb-2 bg-dark text-white"><h3>Nuevo Usuario</h3></div>
-                <form  action="{{url_for('guardar_usuario')}}" method="POST">
+                <form action="{{url_for('actualizar_usuario')}}" method="POST">
                     
+                    <input type="hidden" name="idUsuario" value="{{usuario[0]}}">
     
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar nombres">
+                        <input value="{{usuario[3]}}" type="text" class="form-control" placeholder="Ingresar nombres" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
     
                     
@@ -32,7 +33,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar apellidos" >
+                        <input value="{{usuario[4]}}" type="text" class="form-control" placeholder="Ingresar apellidos" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
             
                     
@@ -44,7 +45,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-lines-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar Usuario" >
+                        <input value="{{usuario[1]}}" type="text" class="form-control" placeholder="Ingresar Usuario" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                   
             
@@ -54,26 +55,40 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar Contraseña" >
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Ingresar estado" >
+                        <input value="{{usuario[2]}}" type="text" class="form-control" placeholder="Ingresar Contraseña" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
     
-                    <div class="row mt-4">
-                        <div class="col">
-                            <label for="foto">Foto del Carro</label>
-                            <input type="file" name="foto" class="form-control-file" accept="image/*" required>
-                        </div>
-                    </div>
-                  
+                    
+                
                     
     
                   
+
+                    <div class="container">
+                        <div class="row justify-content-md-left">
+                        <div class="ml-2 col-sm-4">
+                        <div id="msg"></div>
+                        <form method="post" id="image-form" enctype="multipart/form-data" onSubmit="return false;">
+                        <div class="form-group">
+                        <input value="{{usuario[5]}}"  type="file" name="file" class="file">
+                        <div class="input-group my-3 ">
+                        <input type="text" class="form-control" disabled placeholder="Cargar imagen" id="file">
+                        <div class="input-group-append">
+                        <button type="button" class="browse btn btn-primary">Browse...</button>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <img src="./img/80x80.png" id="preview" class="img-thumbnail">
+                        </div>
+                        <div class="form-group">
+                        <button name="submit" class="btn btn-danger btn-block">Cargar imagen</button>
+                        </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+                   
                     
                     <br><br>
                                     
@@ -87,10 +102,10 @@
                                 <i class="bi bi-trash text-light"></i> Limpiar
                             </button>
 
-                                    
-                            <button type="submit" class="btn btn-success">
+                            <button type="button" class="btn btn-success">
                                 <i class="bi bi-save-fill text-light"></i> Guardar Usuario
                             </button>
+                            
                             
                         </div>
                    
