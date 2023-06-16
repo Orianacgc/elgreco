@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `elgreco`.`comprobante_pago` (
   `idforma_pago` INT ,
   `precio_venta` DECIMAL(11,2) ,
   `cantidad` INT ,
-  PRIMARY KEY (`idcomprobante_pago`, `idforma_pago`),
+  PRIMARY KEY (`idcomprobante_pago`),
   INDEX `fk_comprobante_pago_forma_pago1_idx` (`idforma_pago` ASC) VISIBLE,
   CONSTRAINT `fk_comprobante_pago_forma_pago1`
     FOREIGN KEY (`idforma_pago`)

@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,redirect
-import controlador_clientes, controlador_productos,controlador_usuarios
+import controlador_clientes, controlador_productos,controlador_usuarios,controlador_rol_usuario
 from bd import*
 
 app=Flask(__name__, template_folder='Templates')
@@ -89,22 +89,9 @@ def buscar_cliente():
 
 @app.route("/agregar_usuario")
 def formulario_agregar_usuario():
-    return render_template("agregar_usuario.html")
+    roles = controlador_rol_usuario.obtener_rol_usuario()
+    return render_template("agregar_usuario.html", roles=roles)
 
-
-@app.route("/guardar_usuario", methods=["POST"])
-def guardar_usuario():
-
-    usuario = request.form["usuario"]
-    password = request.form["password"]
-    nombre = request.form["nombre"]
-    apellido = request.form["apellido"]
-    imagen=request.form['imagen']
-    estado = request.form["estado"]
-    
-    controlador_clientes.insertar_cliente(usuario,password,nombre,apellido,imagen,estado)
-    # De cualquier modo, y si todo fue bien, redireccionar
-    return redirect("/usuarios")
 
 
 @app.route("/usuarios")
@@ -138,7 +125,18 @@ def actualizar_usuario():
     controlador_usuarios.actualizar_usuario(usuario,password,nombre,apellido,imagen,estado,idUsuario)
     return redirect("/usuarios")
 
-
+@app.route("/guardar_usuario", methods=["POST"])
+def guardar_usuario():
+    usuario = request.form["usuario"]
+    password = request.form["password"]
+    nombre = request.form["nombre"]
+    apellido = request.form["apellido"]
+    imagen=request.form['imagen']
+    estado = request.form["estado"]
+    rol = request.form["rol"]
+    controlador_usuarios.insertar_usuario(usuario,password,nombre,apellido,imagen,estado,rol)
+    # De cualquier modo, y si todo fue bien, redireccionar
+    return redirect("/usuarios")
 
 
 if __name__=='__main__':

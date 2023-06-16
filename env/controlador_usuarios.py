@@ -1,11 +1,11 @@
 from bd import obtener_conexion
 
 
-def insertar_usuario(usuario,password,nombre,apellido,imagen,estado):
+def insertar_usuario(usuario,password,nombre,apellido,imagen,estado,roluser):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO usuario(usuario,password,nombre,apellido,imagen,estado) VALUES (%s, %s, %s,%s,%s,%s)",
-                       (usuario,password,nombre,apellido,imagen,estado))
+        cursor.execute("INSERT INTO usuario(usuario,password,nombre,apellido,imagen,estado,idtipo_usuario) VALUES (%s, %s, %s,%s,%s,%s,%s)",
+                       (usuario,password,nombre,apellido,imagen,estado,roluser))
     conexion.commit()
     conexion.close()
 

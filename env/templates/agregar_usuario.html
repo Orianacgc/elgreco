@@ -22,7 +22,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar nombres">
+                        <input type="text" class="form-control" placeholder="Ingresar nombres" name="nombre" id="nombre">
                     </div>
     
                     
@@ -32,7 +32,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar apellidos" >
+                        <input type="text" class="form-control" placeholder="Ingresar apellidos" name="apellido" id="apellido" >
                     </div>
             
                     
@@ -44,7 +44,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-lines-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar Usuario" >
+                        <input type="text" class="form-control" placeholder="Ingresar Usuario" name="usuario" id="usuario">
                     </div>
                   
             
@@ -54,20 +54,30 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar Contraseña" >
+                        <input type="text" class="form-control" placeholder="Ingresar Contraseña" name="password" id="password" >
                     </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Ingresar estado" >
+                        <input type="text" class="form-control" placeholder="Ingresar estado" name="estado" id="estado">
                     </div>
-    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                        </div>
+                        <select name="rol" id="rol">
+                            {% for rol in roles %}
+                            <option value= '{{rol[0]}}'>{{rol[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
                     <div class="row mt-4">
                         <div class="col">
-                            <label for="foto">Foto del Carro</label>
-                            <input type="file" name="foto" class="form-control-file" accept="image/*" required>
+                            <label for="foto">Foto Usuario</label>
+                            <input type="file" class="form-control-file" accept="image/*" required  name="imagen" id="imagen">
                         </div>
                     </div>
                   
