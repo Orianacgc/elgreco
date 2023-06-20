@@ -14,10 +14,13 @@ def obtener_usuario():
     conexion = obtener_conexion()
     elgreco = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT idUsuario,usuario,password,nombre,apellido,imagen,estado FROM usuario")
+        cursor.execute("SELECT idUsuario,usuario,password,nombre,apellido,imagen,estado FROM usuario u INNER JOIN rol_usuario rol on rol.idtipo_usuario=u.idtipo_usuario")
         elgreco = cursor.fetchall()
     conexion.close()
     return elgreco
+
+
+
 
 def eliminar_usuario(idUsuario):
     conexion = obtener_conexion()

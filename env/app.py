@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,redirect
-import controlador_clientes, controlador_productos,controlador_usuarios,controlador_rol_usuario
+import controlador_clientes, controlador_productos,controlador_usuarios,controlador_rol_usuario,controlador_ventas, controlador_cotizaciones,controlador_compras
 from bd import*
 
 app=Flask(__name__, template_folder='Templates')
@@ -137,6 +137,244 @@ def guardar_usuario():
     controlador_usuarios.insertar_usuario(usuario,password,nombre,apellido,imagen,estado,rol)
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/usuarios")
+
+
+#------------Productos-------------#
+
+
+@app.route("/agregar_producto")
+def formulario_agregar_producto():
+    return render_template("agregar_producto.html")
+
+
+
+@app.route("/productos")
+def productos():
+    productos = controlador_productos.obtener_producto()
+    return render_template("listado_productos.html", productos=productos)
+
+@app.route("/eliminar_producto", methods=["POST"])
+def eliminar_producto():
+    controlador_productos.eliminar_producto(request.form["idproducto"])
+    return redirect("/productos")
+
+
+@app.route("/formulario_editar_producto/<int:idproducto>")
+def editar_producto(idproducto):
+    # Obtener el usuario por ID
+    producto = controlador_productos.obtener_producto_por_id(idproducto)
+    return render_template("editar_producto.html", producto=producto)
+
+
+@app.route("/actualizar_producto", methods=["POST"])
+def actualizar_producto():
+    idproducto = request.form["idproducto"]
+    codigo = request.form["codigo"]
+    nombre = request.form["nombre"]
+    stock = request.form["stock"]
+    descripcion = request.form["descripcion"]
+    medida = request.form["medida"]
+    costo_venta = request.form["costo_venta"]
+    estado = request.form["estado"]
+
+    controlador_productos.actualizar_producto(codigo,nombre,stock,descripcion,medida,costo_venta,estado,idproducto)
+    return redirect("/productos")
+
+@app.route("/guardar_producto", methods=["POST"])
+def guardar_producto():
+    codigo = request.form["codigo"]
+    nombre = request.form["nombre"]
+    stock = request.form["stock"]
+    descripcion = request.form["descripcion"]
+    medida = request.form["medida"]
+    costo_venta = request.form["costo_venta"]
+    estado = request.form["estado"]
+    controlador_productos.insertar_producto(codigo,nombre,stock,descripcion,medida,costo_venta,estado)
+    # De cualquier modo, y si todo fue bien, redireccionar
+    return redirect("/productos")
+
+
+#------------Ventas-------------#
+
+
+@app.route("/agregar_venta")
+def formulario_agregar_venta():
+    return render_template("agregar_venta.html")
+
+
+
+@app.route("/ventas")
+def ventas():
+    ventas = controlador_ventas.obtener_venta()
+    return render_template("listado_ventas.html", ventas=ventas)
+
+@app.route("/eliminar_venta", methods=["POST"])
+def eliminar_venta():
+    controlador_ventas.eliminar_venta(request.form["idventa"])
+    return redirect("/ventas")
+
+
+@app.route("/formulario_editar_venta/<int:idventa>")
+def editar_venta(idventa):
+    # Obtener el usuario por ID
+    venta = controlador_ventas.obtener_venta_por_id(idventa)
+    return render_template("editar_venta.html", venta=venta)
+
+
+@app.route("/actualizar_venta", methods=["POST"])
+def actualizar_venta():
+    idventa = request.form["idventa"]
+    fecha_venta = request.form["fecha_venta"]
+    fecha_entrega = request.form["fecha_entrega"]
+    total_venta = request.form["total_venta"]
+    hora = request.form["hora"]
+    anticipo = request.form["anticipo"]
+    adeudo = request.form["adeudo"]
+    valorUnitario = request.form["valorUnitario"]
+    descripcion = request.form["descripcion"]
+    subtotal = request.form["subtotal"]
+
+    controlador_ventas.actualizar_venta(fecha_venta,fecha_entrega,total_venta,hora,anticipo,adeudo,valorUnitario,descripcion,subtotal,idventa)
+    return redirect("/ventas")
+
+@app.route("/guardar_venta", methods=["POST"])
+def guardar_venta():
+
+    fecha_venta = request.form["fecha_venta"]
+    fecha_entrega = request.form["fecha_entrega"]
+    total_venta = request.form["total_venta"]
+    hora = request.form["hora"]
+    anticipo = request.form["anticipo"]
+    adeudo = request.form["adeudo"]
+    valorUnitario = request.form["valorUnitario"]
+    descripcion = request.form["descripcion"]
+    subtotal = request.form["subtotal"]
+
+    controlador_ventas.insertar_venta(fecha_venta,fecha_entrega,total_venta,hora,anticipo,adeudo,valorUnitario,descripcion,subtotal)
+    # De cualquier modo, y si todo fue bien, redireccionar
+    return redirect("/ventas")
+
+
+
+#------------Cotizaciones-------------#
+
+
+@app.route("/agregar_cotizacion")
+def formulario_agregar_cotizacion():
+    return render_template("agregar_cotizacion.html")
+
+
+
+@app.route("/cotizaciones")
+def cotizaciones():
+    cotizaciones = controlador_cotizaciones.obtener_cotizacion()
+    return render_template("listado_cotizaciones.html", cotizaciones=cotizaciones)
+
+@app.route("/eliminar_cotizacion", methods=["POST"])
+def eliminar_cotizacion():
+    controlador_cotizaciones.eliminar_cotizacion(request.form["idcotizacion"])
+    return redirect("/cotizaciones")
+
+
+@app.route("/formulario_editar_cotizacion/<int:idcotizacion>")
+def editar_cotizacion(idcotizacion):
+    # Obtener el usuario por ID
+    cotizacion = controlador_cotizaciones.obtener_cotizacion_por_id(idcotizacion)
+    return render_template("editar_cotizacion.html", cotizacion=cotizacion)
+
+
+@app.route("/actualizar_cotizacion", methods=["POST"])
+def actualizar_cotizacion():
+
+    idcotizacion = request.form["idcotizacion"]
+    codigo = request.form["codigo"]
+    fecha_cotizacion = request.form["fecha_cotizacion"]
+    descripcion = request.form["descripcion"]
+    total = request.form["total"]
+    estado = request.form["estado"]
+    
+
+    controlador_cotizaciones.actualizar_cotizacion(codigo,fecha_cotizacion,descripcion,total,estado,idcotizacion)
+    return redirect("/cotizaciones")
+
+@app.route("/guardar_cotizacion", methods=["POST"])
+def guardar_cotizacion():
+
+    codigo = request.form["codigo"]
+    fecha_cotizacion = request.form["fecha_cotizacion"]
+    descripcion = request.form["descripcion"]
+    total = request.form["total"]
+    estado = request.form["estado"]
+    
+
+    controlador_cotizaciones.insertar_cotizacion(codigo,fecha_cotizacion,descripcion,total,estado)
+    # De cualquier modo, y si todo fue bien, redireccionar
+    return redirect("/cotizaciones")
+
+
+#------------Compras-------------#
+
+
+@app.route("/agregar_compra")
+def formulario_agregar_compra():
+    return render_template("agregar_compra.html")
+
+
+
+@app.route("/compras")
+def compras():
+    compras = controlador_compras.obtener_compras()
+    return render_template("listado_compras.html", compras=compras)
+
+@app.route("/eliminar_compra", methods=["POST"])
+def eliminar_compra():
+    controlador_compras.eliminar_compra(request.form["idcompras"])
+    return redirect("/compras")
+
+
+@app.route("/formulario_editar_compra/<int:idcompras>")
+def editar_compras(idcompras):
+    # Obtener el usuario por ID
+    compra = controlador_cotizaciones.obtener_cotizacion_por_id(idcompras)
+    return render_template("editar_compra.html", compra=compra)
+
+
+@app.route("/actualizar_compra", methods=["POST"])
+def actualizar_compra():
+
+    idcompras = request.form["idcompra"]
+    codigo = request.form["codigo"]
+    nombre = request.form["nombre"]
+    descripcion = request.form["descripcion"]
+    hora = request.form["hora"]
+    fecha_compra = request.form["feha_compra"]
+    total = request.form["total"]
+    
+    
+
+    controlador_compras.actualizar_compras(codigo,nombre,descripcion,hora,fecha_compra,total,idcompras)
+    return redirect("/compras")
+
+@app.route("/guardar_compra", methods=["POST"])
+def guardar_compra():
+
+    codigo = request.form["codigo"]
+    nombre = request.form["nombre"]
+    descripcion = request.form["descripcion"]
+    hora = request.form["hora"]
+    fecha_compra = request.form["feha_compra"]
+    total = request.form["total"]
+    
+
+    controlador_cotizaciones.insertar_cotizacion(codigo,nombre,descripcion,hora,fecha_compra,total)
+    # De cualquier modo, y si todo fue bien, redireccionar
+    return redirect("/compras")
+
+
+
+#------------Proveedores-------------#
+
+
 
 
 if __name__=='__main__':

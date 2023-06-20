@@ -74,6 +74,7 @@ Agregar venta
                 <th scope="col">Foto</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Último login</th>
+                <th scope="col">Rol</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
@@ -101,29 +102,39 @@ Agregar venta
                 </td>
             
                 <td>
-                      <div class="row justify-content-center">
-                      
-
-                        <div class="col-auto">
-                          <button  class="btn btn btn-warning"><a href="{{url_for('editar_usuario', idUsuario=usuario[0])}}"  class="bi bi-pencil-square"></a></button>
-                        </div>
-
-
-                        
-                        
-                      <form action="{{url_for('eliminar_usuario')}}" method="POST">
-
-                          
-                        <input type="hidden" name="idUsuario" value="{{usuario[0]}}">
-                          <div class="col-auto">
-                              <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
-                          </div>
-                      
-                      
-                      </form>
-                    </div>
-                    
+                   
                 </td>
+
+                <td>
+                  {{usuario[7]}}  
+                </td>
+
+
+                <td>
+                  <div class="row justify-content-center">
+                  
+
+                    <div class="col-auto">
+                      <button  class="btn btn btn-warning"><a href="{{url_for('editar_usuario', idUsuario=usuario[0])}}"  class="bi bi-pencil-square"></a></button>
+                    </div>
+
+
+                    <div class="col-auto">
+                    
+                     <form action="{{url_for('eliminar_usuario')}}" method="POST">
+
+                      
+                      <input type="hidden" name="idUsuario" value="{{usuario[0]}}">
+                      
+                            <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                       
+                  
+                     </form>
+                    </div>
+                  
+                </div>
+                
+            </td>
               </tr>
               {% endfor %}
             </tbody>

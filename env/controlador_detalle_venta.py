@@ -19,7 +19,7 @@ def obtener_detalle_venta():
     conexion.close()
     return elgreco
 
-def eliminar_detalle_compras(iddetalle_venta):
+def eliminar_detalle_venta(iddetalle_venta):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
         cursor.execute("DELETE FROM detalle_venta WHERE iddetalle_venta = %s", (iddetalle_venta,))
@@ -27,7 +27,7 @@ def eliminar_detalle_compras(iddetalle_venta):
     conexion.close()
 
 
-def obtener_detalle_compras_por_id(iddetalle_venta):
+def obtener_detalle_venta_por_id(iddetalle_venta):
     conexion = obtener_conexion()
     elgreco = None
     with conexion.cursor() as cursor:
@@ -38,7 +38,7 @@ def obtener_detalle_compras_por_id(iddetalle_venta):
     return elgreco
 
 
-def actualizar_detalle_compras(iddetalle_venta,cantidad,precio_venta,descuento):
+def actualizar_detalle_venta(iddetalle_venta,cantidad,precio_venta,descuento):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
         cursor.execute("UPDATE detalle_venta SET  cantidad= %s, precio_venta= %s,descuento=%s WHERE iddetalle_venta = %s",
