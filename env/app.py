@@ -1,12 +1,12 @@
 from flask import Flask, render_template,request,redirect
-import controlador_clientes, controlador_productos,controlador_usuarios,controlador_rol_usuario,controlador_ventas, controlador_cotizaciones,controlador_compras
+import controlador_clientes, controlador_productos,controlador_usuarios,controlador_rol_usuario,controlador_ventas, controlador_cotizaciones,controlador_compras, controlador_categorias
 from bd import*
 
 app=Flask(__name__, template_folder='Templates')
 
 @app.route('/')
 def main():
-    return render_template('listado_clientes.html')
+    return render_template('listado_productos.html')
 
 @app.route("/agregar_cliente")
 def formulario_agregar_cliente():
@@ -144,7 +144,8 @@ def guardar_usuario():
 
 @app.route("/agregar_producto")
 def formulario_agregar_producto():
-    return render_template("agregar_producto.html")
+    categorias = controlador_categorias.obtener_categoria()
+    return render_template("agregar_producto.html",categorias=categorias)
 
 
 
@@ -173,11 +174,13 @@ def actualizar_producto():
     nombre = request.form["nombre"]
     stock = request.form["stock"]
     descripcion = request.form["descripcion"]
+    color = request.form["color"]
     medida = request.form["medida"]
+    imagen = request.form["imagen"]
     costo_venta = request.form["costo_venta"]
     estado = request.form["estado"]
 
-    controlador_productos.actualizar_producto(codigo,nombre,stock,descripcion,medida,costo_venta,estado,idproducto)
+    controlador_productos.actualizar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,estado,idproducto)
     return redirect("/productos")
 
 @app.route("/guardar_producto", methods=["POST"])
@@ -186,10 +189,14 @@ def guardar_producto():
     nombre = request.form["nombre"]
     stock = request.form["stock"]
     descripcion = request.form["descripcion"]
+    color = request.form["color"]
     medida = request.form["medida"]
+    imagen = request.form["imagen"]
     costo_venta = request.form["costo_venta"]
     estado = request.form["estado"]
-    controlador_productos.insertar_producto(codigo,nombre,stock,descripcion,medida,costo_venta,estado)
+    categoria =request.form["categoria"]
+    
+    controlador_productos.insertar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,estado,categoria)
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/productos")
 

@@ -49,31 +49,10 @@ DROP TABLE IF EXISTS `elgreco`.`categoria` ;
 CREATE TABLE IF NOT EXISTS `elgreco`.`categoria` (
   `idcategoria` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(255),
-  `estado` VARCHAR(45),
   PRIMARY KEY (`idcategoria`))
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `elgreco`.`catalogo`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `elgreco`.`catalogo` ;
-
-CREATE TABLE IF NOT EXISTS `elgreco`.`catalogo` (
-  `idcatalogo` INT NOT NULL AUTO_INCREMENT,
-  `idcategoria` INT ,
-  `nombre` VARCHAR(45) ,
-  `descripcion` VARCHAR(255),
-  `caracteristicas` VARCHAR(2555) ,
-  `estado` VARCHAR(45) ,
-  `imagen` VARCHAR(45) ,
-  PRIMARY KEY (`idcatalogo`),
-  CONSTRAINT `fk_catalogo_categoria1`
-    FOREIGN KEY (`idcategoria`)
-    REFERENCES `elgreco`.`categoria` (`idcategoria`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -83,19 +62,20 @@ DROP TABLE IF EXISTS `elgreco`.`producto` ;
 
 CREATE TABLE IF NOT EXISTS `elgreco`.`producto` (
   `idproducto` INT NOT NULL auto_increment,
-  `idcatalogo` INT ,
+  `idcategoria` INT ,
   `codigo` VARCHAR(45) ,
   `nombre` VARCHAR(45) ,
   `stock` INT ,
   `descripcion` VARCHAR(255) ,
+  `color` VARCHAR(45) ,
   `medida` DECIMAL(11,2) ,
   `imagen` VARCHAR(45),
   `costo_venta` DECIMAL(11,2),
   `estado` VARCHAR(45) ,
   PRIMARY KEY (`idproducto`),
-  CONSTRAINT `fk_producto_catalogo1`
-    FOREIGN KEY (`idcatalogo` )
-    REFERENCES `elgreco`.`catalogo` (`idcatalogo` )
+  CONSTRAINT `fk_producto_categoria1`
+    FOREIGN KEY (`idcategoria` )
+    REFERENCES `elgreco`.`categoria` (`idcategoria` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

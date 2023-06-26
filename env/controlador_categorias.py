@@ -1,11 +1,11 @@
 from bd import obtener_conexion
 
 
-def insertar_categoria(descripcion,estado):
+def insertar_categoria(descripcion):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO categoria(descripcion,estado) VALUES (%s, %s)",
-                       (descripcion,estado))
+        cursor.execute("INSERT INTO categoria(descripcion) VALUES (%s)",
+                       (descripcion))
     conexion.commit()
     conexion.close()
 
@@ -14,7 +14,7 @@ def obtener_categoria():
     conexion = obtener_conexion()
     elgreco = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT idcategoria,descripcion,estado FROM categoria")
+        cursor.execute("SELECT idcategoria,descripcion FROM categoria")
         elgreco = cursor.fetchall()
     conexion.close()
     return elgreco
@@ -32,17 +32,17 @@ def obtener_categoria_por_id(idcategoria):
     elgreco = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT idcategoria,descripcion,estado FROM categoria WHERE idcategoria = %s", (idcategoria,))
+            "SELECT idcategoria,descripcion FROM categoria WHERE idcategoria = %s", (idcategoria,))
         elgreco = cursor.fetchone()
     conexion.close()
     return elgreco
 
 
-def actualizar_categoria(idcategoria,descripcion,estado):
+def actualizar_categoria(idcategoria,descripcion):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE categoria SET  descripcion = %s, estado= %s  WHERE idcategoria = %s",
-                       (idcategoria,descripcion,estado))
+        cursor.execute("UPDATE categoria SET  descripcion = %s WHERE idcategoria = %s",
+                       (idcategoria,descripcion))
     conexion.commit()
     conexion.close()
 

@@ -24,7 +24,7 @@ Agregar venta
       <div class="col py-3">
         <h4 class="text-start">Punto de Venta</h4>
       </div>
-   
+      <form  action="{{url_for('guardar_venta')}}" method="POST">
       <form class="form-inline">
         <div class="row g-3 align-items-center">
           <div class="col-auto">
@@ -51,7 +51,7 @@ Agregar venta
               </label>
           </div>
 
-          <div class="col-6">
+          <div class="col-5">
             <label class="sr-only" for="inlineFormInputName2">Fecha de entrega:
               
             </label>
@@ -62,6 +62,14 @@ Agregar venta
           
             <button type="button" class="btn btn-success">
               <i class="bi bi-cart-check-fill text-light  "></i> Realizar Venta
+            </button>
+            
+          </div>
+
+          <div class="col-auto">
+          
+            <button type="button" class="btn btn-dark">
+              <i class="bi bi-file-earmark-check-fill"></i> <a  href="{{url_for('formulario_agregar_cotizacion')}}" >Realizar Cotización</a>
             </button>
             
           </div>

@@ -1,7 +1,7 @@
 {% extends './index.html' %}
 
 {% block titulo %}
-Agregar venta
+Cotizaciones
 {% endblock %}
 
 {% block customCSS %}
@@ -77,18 +77,20 @@ Agregar venta
               </tr>
             </thead>
             <tbody>
+              {% for cotizacion in cotizaciones %}
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
+               
+                <td>{{cotizacion[0]}}</td>
+                <td>{{cotizacion[]}}</td>
+                <td>{{cotizacion[3]}}</td>
+                <td>{{cotizacion[2]}}</td>
+                <td>{{cotizacion[4]}}</td>
                 <td>
                   <button type="button" class="btn btn-success" style='width:100px; height:40px'>
                     <i class=" text-light "></i> Activo
                 </button>
                 </td>
-                <td>@mdo</td>
+                <td><td>{{cotizacion[]}}</td></td>
                 <td>
                     <div class="row justify-content-center">
                         <div class="col-auto">
@@ -100,82 +102,9 @@ Agregar venta
                     </div>
                     
                 </td>
+             
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>
-                  <button type="button" class="btn btn-danger" style='width:100px; height:40px'>
-                    <i class=" text-light "></i> Rechazado
-                </button>
-                </td>
-                <td>@mdo</td>
-                <td>
-                    <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <button  class="btn btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                        </div>
-                        <div class="col-auto">
-                            <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
-                        </div>
-                    </div>
-                    
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>
-                  <button type="button" class="btn btn-info" style='width:100px; height:40px'>
-                    <i class=" text-light "></i> Enviado
-                </button>
-                </td>
-                <td>@mdo</td>
-                <td>
-                    <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <button  class="btn btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                        </div>
-                        <div class="col-auto">
-                            <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
-                        </div>
-                    </div>
-                    
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>
-                  
-                    <button type="button" class="btn btn-warning" style='width:100px; height:40px'>
-                      <i class=" text-light "></i> Pendiente
-                    </button>
-                  
-                  
-                </td>
-                <td>@mdo</td>
-                <td>
-                    <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <button  class="btn btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                        </div>
-                        <div class="col-auto">
-                            <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
-                        </div>
-                    </div>
-                    
-                </td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
     

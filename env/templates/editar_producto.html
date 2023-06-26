@@ -1,0 +1,168 @@
+{% extends './index.html' %}
+
+{% block titulo %}
+Agregar venta
+{% endblock %}
+
+{% block customCSS %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css')}}">
+
+{% endblock %}
+
+{% block contenido %}
+
+ 
+   
+  
+  <!--Main Navigation-->
+ 
+  <!--Main layout-->
+   <main style="margin-top: 0px;">
+    
+     <div class="container pt-6 ">
+        <div class="row"> 
+
+            <div class="col-6">
+                <div class="p-1 mb-2 bg-dark text-white"><h3>Editar Producto</h3></div>
+                <form action="{{url_for('actualiazar_producto')}}" method="POST">
+                    
+                    <input type="hidden" name="idproducto" value="{{producto[0]}}">
+    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-grid"></i></span>
+                        </div>
+                        <input value="{{producto[0]}}" type="text" class="form-control" placeholder="Ingresar Categoría"  name="" id="">
+                    </div>
+    
+                    
+    
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-upc-scan"></i></span>
+                        </div>
+                        <input value="{{producto[1]}}" type="text" class="form-control" placeholder="Ingresar Código"  name="codigo" id="codigo">
+                    </div>
+            
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-bounding-box"></i></span>
+                        </div>
+                        <input value="{{producto[2]}}"  type="text" class="form-control" placeholder="Ingresar producto"  name="nombre" id="nombre">
+                    </div>
+                    
+            
+                   
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-earmark-text-fill"></i></span>
+                        </div>
+                        <input value="{{producto[4]}}" type="text" class="form-control" placeholder="Ingresar Descripción"  name="descripcion" id="descripcion">
+                    </div>
+                  
+            
+                
+                  
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-paint-bucket"></i></span>
+                        </div>
+                        <input value="{{producto[5]}}" type="text" class="form-control" placeholder="Ingresar Color"  name="color" id="color">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-rulers"></i></span>
+                        </div>
+                        <input value="{{producto[6]}}" type="text" class="form-control" placeholder="Ingresar medida"  name="medida" id="medida">
+                    </div>
+    
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-check2"></i></span>
+                        </div>
+                        <input value="{{producto[3]}}" type="text" class="form-control" placeholder="Stock"  name="stock" id="stock">
+                    </div>
+
+                      
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-toggles"></i></span>
+                        </div>
+                        <input value="{{producto[9]}}" type="text" class="form-control" placeholder="Estado"  name="estado" id="estado">
+                    </div>
+
+                    
+    
+                    <div class="row g-3 align-items-center">
+                        <div class="col-6">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-tag-fill"></i></span>
+                                </div>
+                                <input value="{{producto[8]}}"  type="text" class="form-control" placeholder="Precio de Venta"  name="costo_venta" id="costo_venta">
+                            </div>
+                        </div>
+                          
+                        <div class="col-6">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-tag-fill"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Precio de Compra"  name="" id="">
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                            <button type="button" class="btn btn-secondary">
+                                <i class="bi bi-journal-text text-light"></i> Historial de costos
+                            </button>
+
+                        </div>
+                       
+                      
+                    </div>
+
+                      
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label for="foto">Foto Producto</label>
+                            <input value="{{producto[7]}}"  type="file" class="form-control-file" accept="image/*" required  name="imagen" id="imagen">
+                        </div>
+                    </div>
+                   
+                    
+                    <br><br>
+                                    
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                            <button type="button" class="btn btn-secondary ">
+                                <i class="bi bi-box-arrow-left text-light"></i> Salir
+                            </button>
+
+                            <button type="button" class="btn btn-secondary">
+                                <i class="bi bi-trash text-light"></i> Limpiar
+                            </button>
+
+                            <button type="button" class="btn btn-success">
+                                <i class="bi bi-save-fill text-light"></i> Guardar Producto
+                            </button>
+                        
+                        
+                        </div>
+                   
+                </form>
+            </div>
+
+        </div>
+        
+        
+     </div>  
+  </main>
+  <!--Main layout-->
+
+{% endblock %}

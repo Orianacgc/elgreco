@@ -43,7 +43,7 @@ Agregar venta
 
            
             <button type="button" class="btn btn-success">
-                <i class="bi bi-plus-circle-fill text-light "></i> Nuevo Producto
+                <a href="{{url_for('formulario_agregar_producto')}}"  class="bi bi-plus-circle-fill text-light "></a> Nuevo Producto
             </button>
            
            
@@ -86,16 +86,16 @@ Agregar venta
                   <td>{{producto[1]}}</td>
                   <td>{{producto[2]}}</td>
                   <td>{{producto[4]}}</td>
-                  <td>{{producto[7]}}</td>
+                  <td>{{producto[8]}}</td>
                   <td>{{producto[3]}}</td>
-                  <td>{{producto[6]}}</td>
+                  <td>{{producto[7]}}</td>
                   <td></td>
                  
               
                 <td><img style='width:40px; height:40px' src="..." class="rounded mx-auto d-block" alt="..."></td>
                 <td>
                   <button type="button" class="btn btn-success" style='width:100px; height:40px'>
-                    <i class=" text-light "></i> Activo
+                    <i class=" text-light "></i> {{producto[9]}}
                 </button>
                 </td>
                 <td>  

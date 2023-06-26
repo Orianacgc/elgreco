@@ -87,6 +87,9 @@ Agregar venta
                 <td>{{usuario[4]}}</td>
               
                 <td>
+
+                  {{usuario[5]}}
+                  
                   {% if(usuario.imagen !="") %}
                   <img src="{{ url_for }}{{ usuario.imagen }}" class="sin_foto_mini" alt="{{ usuario.usuario }}">
                   {% else %}
