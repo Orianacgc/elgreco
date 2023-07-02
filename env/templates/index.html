@@ -31,23 +31,23 @@
            <div class="position-sticky bg-black">
              <div class="list-group list-group-flush mx-3 mt-4 text-start">
      
-               <a href="#templates/principal.html" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+               <a href="{{url_for('principal')}}" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
                  <i class="fas fa-tachometer-alt fa-fw me-3 bi bi-filter-square-fill "></i><span class="text-white">Tablero Principal</span>
                </a>
                
-               <a href="#listado_usuarios.html"  class="list-group-item list-group-item-action py-2 bg-black ">
+               <a href="{{url_for('usuarios')}}" class="list-group-item list-group-item-action py-2 bg-black ">
                   <i class="fas fa-chart-area fa-fw me-3 bi bi-person-fill"></i><span class="text-white">Usuarios</span> 
                </a>
               
-               <a href="listado_clientes.html" class="list-group-item list-group-item-action py-2 bg-black">
+               <a href="{{url_for('clientes')}}" class="list-group-item list-group-item-action py-2 bg-black">
                  <i class="fas fa-lock fa-fw me-3 bg-black bi bi-people-fill "></i><span class="text-white">Clientes</span>
                </a>
      
-               <a href="listado_productos.html" class="list-group-item list-group-item-action py-2 bg-black">
+               <a href="{{url_for('productos')}}" class="list-group-item list-group-item-action py-2 bg-black">
                  <i class="fas fa-lock fa-fw me-3 bg-black bi bi-box-seam  "></i><span class="text-white">Productos</span>
                </a>
      
-               <a href="listado_ventas.html" class="list-group-item list-group-item-action py-2 bg-black">
+               <a href="{{url_for('ventas')}}" class="list-group-item list-group-item-action py-2 bg-black">
                 <i class="fas fa-chart-pie fa-fw me-3 bi bi-cart-fill"></i><span class="text-white">Ventas</span>
                </a>
      

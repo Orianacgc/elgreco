@@ -1,0 +1,271 @@
+
+
+{% extends './index.html' %}
+
+{% block titulo %}
+Agregar venta
+{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<form class>
+ 
+   
+  
+  <!--Main Navigation-->
+ 
+  <!--Main layout-->
+  <main style="margin-top: 0px;">
+    <div class="container pt-4"></div>
+    <div class="container">
+      <div class="col py-3">
+        <h4 class="text-start">Punto de Venta</h4>
+      </div>
+      <form  action="{{url_for('guardar_venta')}}" method="POST">
+      <form class="form-inline">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+                <label class="sr-only" for="inlineFormInputName2">Cliente*</label>
+          </div>
+            
+          <div class="col-6">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ingresa el cliente">
+            
+          </div>
+                
+          <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Agregar Cliente</button>
+          </div>   
+         
+        </div>
+        <div class="w-100"></div>
+        <br />  
+        <dvi class="row"> 
+
+          <div class="col-auto">
+              <label class="sr-only" for="inlineFormInputName2">Fecha de venta:
+                
+              </label>
+          </div>
+
+          <div class="col-5">
+            <label class="sr-only" for="inlineFormInputName2">Fecha de entrega:
+              
+            </label>
+        </div>
+
+  
+          <div class="col-auto">
+          
+            <button type="button" class="btn btn-success">
+              <i class="bi bi-cart-check-fill text-light  "></i> Realizar Venta
+            </button>
+            
+          </div>
+
+          <div class="col-auto">
+          
+            <button type="button" class="btn btn-dark">
+              <i class="bi bi-file-earmark-check-fill"></i> <a  href="{{url_for('formulario_agregar_cotizacion')}}" >Realizar Cotización</a>
+            </button>
+            
+          </div>
+        
+      </form>
+    </div>
+
+      
+     
+
+      <div class="container">
+
+        <div class="col py-3">
+          <h4 class="text-start">Medidad (cm)</h4>
+        </div>
+
+        <form class="row g-3 mt -3">
+          
+          <div class="col-1">
+            <label class="form-check-label" for="nameInput">Ancho:</label>
+          
+          </div>
+          <div class="col-2">
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="Ancho">
+          </div>
+
+          <div class="col-1">
+            <label class="form-check-label" for="nameInput">Largo:</label>
+           
+          </div>
+          <div class="col-2">
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="Largo">
+          </div>
+
+
+          <div class="col-1">
+            <label class="form-check-label" for="nameInput">Perfil:</label>
+            
+          </div>
+          
+          
+            
+          
+             
+          <div class="col-2">
+            <div class="form-group">
+              
+              <select class="form-control" id="exampleFormControlSelect1" placeholder="perfil">
+                <option>#02</option>
+                <option>Cajoncito</option>
+                <option>#13</option>
+                <option>#15</option>
+                <option>Yuli</option>
+              </select>
+            </div>
+            
+          </div>
+
+          <div class="col-1">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"> Vertical
+            </label>
+          </div>
+
+          <div class="col-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"> Horizontal
+            </label>
+          </div>
+          
+
+          <div class="w-100"></div>
+          <br />  
+
+        
+          <dvi class="row">
+            <div class="col-1">
+              <label class="form-check-label" for="nameInput">Color:</label>
+              
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+              
+                <select class="form-control" id="exampleFormControlSelect1" placeholder="Color">
+                  <option>Maple</option>
+                  <option>Vino</option>
+                  <option>Caoba</option>
+                  <option>Natural</option>
+                  <option>Rogizo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-1">
+              <label class="form-check-label" for="nameInput">Vidrio:</label>
+           
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+              
+                <select class="form-control" id="exampleFormControlSelect1" placeholder="Vidrio">
+                  <option>V/N</option>
+                  <option>V/A</option>
+                  <option>V/A V/N</option>
+                  <option>V/N V/N</option>
+                  
+                </select>
+              </div>
+            </div>
+
+            <div class="col-1">
+              <label class="form-check-label" for="nameInput">M/L:</label>
+              
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+              
+                <select class="form-control" id="exampleFormControlSelect1" placeholder="M/L">
+                  <option>B222</option>
+                  <option>B407</option>
+                  <option>B504</option>
+                  
+                </select>
+              </div>
+            </div>
+
+            <div class="col-1">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Pata fija
+              </label>
+            </div>
+  
+            <div class="col-2">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Pata flexible
+              </label>
+            </div>
+          </dvi>
+          
+
+        
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+             <div class="col py-1">
+              <h6 class="text-start">Precio de la Venta</h6>
+             </div>
+
+            <button type="button" class="btn btn-success">
+              <i class="bi bi-plus text-light"></i> Agregar
+            </button>
+            <button type="button" class="btn btn-danger">
+              <i class="bi bi-trash text-light"></i> Eliminar
+            </button>
+            
+            
+            
+          </div>
+
+          
+          <div class="container">  
+            <h6>Detalle de Venta</h6>  
+            <div class="row ">  
+                <div class="col-md-1 py-2" style="background-color:#808080">Código</div>  
+                <div class="col-md-1 py-2" style="background-color:#808080">Cant.</div>  
+                <div class="col-md-2 py-2" style="background-color:#808080">Producto</div>  
+                <div class="col-md-3 py-2" style="background-color:#808080">Descripción</div>  
+                <div class="col-md-2 py-2" style="background-color:#808080">Precio Unit.</div>  
+                <div class="col-md-1 py-2" style="background-color:#808080">Total</div>  
+                <div class="col-md-2 py-2" style="background-color:#808080">Acciones</div>  
+                <div class="w-100"></div>
+                 <br /> 
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <h6>Total de Venta:</h6>
+                </div>
+                 
+            </div>
+          </div>
+           
+
+      
+
+          <div class="form-floating col-6">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Observasiones</label>
+          </div>
+
+          <div class="w-100"></div>
+          <br /> 
+         
+        </form>
+      </div>
+      
+    
+    
+    
+  </main>
+  <!--Main layout-->
+</form>
+{% endblock %}

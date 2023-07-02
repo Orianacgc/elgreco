@@ -8,6 +8,11 @@ app=Flask(__name__, template_folder='Templates')
 def main():
     return render_template('listado_productos.html')
 
+
+@app.route("/principal")
+def principal():
+    return render_template("principal.html")
+
 @app.route("/agregar_cliente")
 def formulario_agregar_cliente():
     return render_template("agregar_cliente.html")
@@ -179,6 +184,7 @@ def actualizar_producto():
     imagen = request.form["imagen"]
     costo_venta = request.form["costo_venta"]
     estado = request.form["estado"]
+    
 
     controlador_productos.actualizar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,estado,idproducto)
     return redirect("/productos")
@@ -195,7 +201,7 @@ def guardar_producto():
     costo_venta = request.form["costo_venta"]
     estado = request.form["estado"]
     categoria =request.form["categoria"]
-    
+
     controlador_productos.insertar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,estado,categoria)
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/productos")
@@ -206,7 +212,9 @@ def guardar_producto():
 
 @app.route("/agregar_venta")
 def formulario_agregar_venta():
-    return render_template("agregar_venta.html")
+    productos = controlador_productos.obtener_producto_categoria()
+    clientes = controlador_clientes.obtener_cliente()
+    return render_template("agregar_venta.html", productos=productos,clientes=clientes)
 
 
 
@@ -237,11 +245,9 @@ def actualizar_venta():
     hora = request.form["hora"]
     anticipo = request.form["anticipo"]
     adeudo = request.form["adeudo"]
-    valorUnitario = request.form["valorUnitario"]
-    descripcion = request.form["descripcion"]
     subtotal = request.form["subtotal"]
 
-    controlador_ventas.actualizar_venta(fecha_venta,fecha_entrega,total_venta,hora,anticipo,adeudo,valorUnitario,descripcion,subtotal,idventa)
+    controlador_ventas.actualizar_venta(fecha_venta,fecha_entrega,total_venta,hora,anticipo,adeudo,subtotal,idventa)
     return redirect("/ventas")
 
 @app.route("/guardar_venta", methods=["POST"])
@@ -253,11 +259,9 @@ def guardar_venta():
     hora = request.form["hora"]
     anticipo = request.form["anticipo"]
     adeudo = request.form["adeudo"]
-    valorUnitario = request.form["valorUnitario"]
-    descripcion = request.form["descripcion"]
     subtotal = request.form["subtotal"]
 
-    controlador_ventas.insertar_venta(fecha_venta,fecha_entrega,total_venta,hora,anticipo,adeudo,valorUnitario,descripcion,subtotal)
+    controlador_ventas.insertar_venta(fecha_venta,fecha_entrega,total_venta,hora,anticipo,adeudo,subtotal)
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/ventas")
 

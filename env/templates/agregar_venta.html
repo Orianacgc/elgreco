@@ -11,6 +11,26 @@ Agregar venta
 {% endblock %}
 
 {% block contenido %}
+<script>
+  let prods=[]
+              {% for producto in productos %}
+              prods.push({
+                id:{{producto[0]}},
+                codigo:{{producto[1]}},
+                nombre:'{{producto[2]}}',
+                stock:{{producto[3]}},
+                descripcion:{{producto[4]}},
+                color:{{producto[5]}},
+                medida:{{producto[6]}},
+                imagen:{{producto[7]}},
+                precioventa:{{producto[8]}},
+                preciocompra:{{producto[9]}},
+              
+
+                categoria:'{{producto[10]}}'
+              })
+              {% endfor %}
+</script>
 <form class>
  
    
@@ -31,14 +51,20 @@ Agregar venta
                 <label class="sr-only" for="inlineFormInputName2">Cliente*</label>
           </div>
             
-          <div class="col-6">
-                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ingresa el cliente">
-            
-          </div>
+          
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+            </div>
+
+            <select name="cliente" id="cliente">
+              {% for cliente in clientes %}
+              <option value= '{{cliente[0]}}'>{{cliente[1]}} {{cliente[2]}} {{cliente[3]}}</option>
+              {% endfor %}
+            </select>
+          
                 
-          <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-2">Agregar Cliente</button>
-          </div>   
+        </div>
          
         </div>
         <div class="w-100"></div>
@@ -105,29 +131,121 @@ Agregar venta
           </div>
 
 
-          <div class="col-1">
-            <label class="form-check-label" for="nameInput">Perfil:</label>
+          <div class="row g-3 align-items-center">
             
-          </div>
-          
-          
-            
-          
-             
-          <div class="col-2">
-            <div class="form-group">
-              
-              <select class="form-control" id="exampleFormControlSelect1" placeholder="perfil">
-                <option>#02</option>
-                <option>Cajoncito</option>
-                <option>#13</option>
-                <option>#15</option>
-                <option>Yuli</option>
-              </select>
+            <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputName2"><h3>Perfil</h3></label>
+            </div>
+
+            <div class="col-4">
+              <label class="sr-only" for="inlineFormInputName2"><h3>Color</h3></label>
             </div>
             
+            <div class="row g-3 align-items-center">
+              <div class="col-2">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-tag-fill"></i></span>
+                      </div>
+                      <select name="perfil" id="Perfil">
+                        {% for producto in productos %}
+                        {% if (producto[10] == "Perfil") %}
+                        <option value= '{{producto[0]}}'>{{producto[2]}} </option>
+                        {% endif %}
+                        {% endfor %}
+                      </select>
+                  </div>
+              </div>
+              
+            
+              <div class="col-2">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-tag-fill"></i></span>
+                      </div>
+                      <select name="perfil" id="Perfil">
+                        {% for producto in productos %}
+                        {% if (producto[10] == "Perfil") %}
+                        <option value= '{{producto[0]}}'>{{producto[5]}} </option>
+                        {% endif %}
+                        {% endfor %}
+                      </select>
+                  </div>
+              </div>
+
+  
+          
+
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputName2"><h3>Vidrio</h3></label>
+            </div>
+              
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+              </div>
+  
+              <select name="vidrio" id="vidrio">
+                {% for producto in productos %}
+                {% if (producto[10] == "Vidrio") %}
+                <option value= '{{producto[0]}}'>{{producto[2]}} </option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+                  
           </div>
 
+
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputName2"><h3>María Luisa</h3></label>
+            </div>
+              
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+              </div>
+  
+              <select name="M/L" id="M/L">
+                {% for producto in productos %}
+                {% if (producto[10] == "M/L") %}
+                <option value= '{{producto[0]}}'>{{producto[2]}} </option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+                  
+          </div>
+
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputName2"><h3>Soporte</h3></label>
+            </div>
+              
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+              </div>
+  
+              <select name="vidrio" id="vidrio">
+                {% for producto in productos %}
+                {% if (producto[10] == "Soporte") %}
+                <option value= '{{producto[0]}}'>{{producto[2]}} </option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+                  
+          </div>
+                  
+          
+
+            
           <div class="col-1">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox"> Vertical
@@ -139,6 +257,15 @@ Agregar venta
               <input class="form-check-input" type="checkbox"> Horizontal
             </label>
           </div>
+           
+          </div>
+          
+          
+            
+          
+             
+       
+
           
 
           <div class="w-100"></div>
@@ -146,70 +273,8 @@ Agregar venta
 
         
           <dvi class="row">
-            <div class="col-1">
-              <label class="form-check-label" for="nameInput">Color:</label>
-              
-            </div>
-            <div class="col-2">
-              <div class="form-group">
-              
-                <select class="form-control" id="exampleFormControlSelect1" placeholder="Color">
-                  <option>Maple</option>
-                  <option>Vino</option>
-                  <option>Caoba</option>
-                  <option>Natural</option>
-                  <option>Rogizo</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-1">
-              <label class="form-check-label" for="nameInput">Vidrio:</label>
-           
-            </div>
-            <div class="col-2">
-              <div class="form-group">
-              
-                <select class="form-control" id="exampleFormControlSelect1" placeholder="Vidrio">
-                  <option>V/N</option>
-                  <option>V/A</option>
-                  <option>V/A V/N</option>
-                  <option>V/N V/N</option>
-                  
-                </select>
-              </div>
-            </div>
-
-            <div class="col-1">
-              <label class="form-check-label" for="nameInput">M/L:</label>
-              
-            </div>
-            <div class="col-2">
-              <div class="form-group">
-              
-                <select class="form-control" id="exampleFormControlSelect1" placeholder="M/L">
-                  <option>B222</option>
-                  <option>B407</option>
-                  <option>B504</option>
-                  
-                </select>
-              </div>
-            </div>
-
-            <div class="col-1">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Pata fija
-              </label>
-            </div>
-  
-            <div class="col-2">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Pata flexible
-              </label>
-            </div>
-          </dvi>
-          
-
+            
+    
         
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 

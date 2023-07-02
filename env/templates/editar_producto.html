@@ -25,18 +25,9 @@ Agregar venta
 
             <div class="col-6">
                 <div class="p-1 mb-2 bg-dark text-white"><h3>Editar Producto</h3></div>
-                <form action="{{url_for('actualiazar_producto')}}" method="POST">
+                <form action="{{url_for('actualizar_producto')}}" method="POST">
                     
-                    <input type="hidden" name="idproducto" value="{{producto[0]}}">
-    
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-grid"></i></span>
-                        </div>
-                        <input value="{{producto[0]}}" type="text" class="form-control" placeholder="Ingresar Categoría"  name="" id="">
-                    </div>
-    
-                    
+                    <input type="hidden" name="idproducto" value="{{producto[0]}}"> 
     
                     
                     <div class="input-group mb-3">
@@ -107,6 +98,8 @@ Agregar venta
                                 <input value="{{producto[8]}}"  type="text" class="form-control" placeholder="Precio de Venta"  name="costo_venta" id="costo_venta">
                             </div>
                         </div>
+
+                        <!--
                           
                         <div class="col-6">
                             <div class="input-group mb-3">
@@ -116,6 +109,9 @@ Agregar venta
                                 <input type="text" class="form-control" placeholder="Precio de Compra"  name="" id="">
                             </div>
                         </div>
+
+                        -->
+
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
                             <button type="button" class="btn btn-secondary">
@@ -131,7 +127,7 @@ Agregar venta
                     <div class="row mt-4">
                         <div class="col">
                             <label for="foto">Foto Producto</label>
-                            <input value="{{producto[7]}}"  type="file" class="form-control-file" accept="image/*" required  name="imagen" id="imagen">
+                            <input value="{{producto[6]}}"  type="file" class="form-control-file" accept="image/*" required  name="imagen" id="imagen">
                         </div>
                     </div>
                    
@@ -148,7 +144,7 @@ Agregar venta
                                 <i class="bi bi-trash text-light"></i> Limpiar
                             </button>
 
-                            <button type="button" class="btn btn-success">
+                            <button type="submit" class="btn btn-success">
                                 <i class="bi bi-save-fill text-light"></i> Guardar Producto
                             </button>
                         

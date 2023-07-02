@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `elgreco`.`cliente` (
   `aPaterno` VARCHAR(45) ,
   `aMaterno` VARCHAR(45) ,
   `nombres` VARCHAR(45) ,
-  `telefono` INT ,
+  `telefono` VARCHAR(45),
   `email` VARCHAR(45),
   `calle` VARCHAR(45),
   `numero_exterior` VARCHAR(45),
@@ -53,8 +53,6 @@ CREATE TABLE IF NOT EXISTS `elgreco`.`categoria` (
 ENGINE = InnoDB;
 
 
-
-
 -- -----------------------------------------------------
 -- Table `elgreco`.`producto`
 -- -----------------------------------------------------
@@ -67,10 +65,11 @@ CREATE TABLE IF NOT EXISTS `elgreco`.`producto` (
   `nombre` VARCHAR(45) ,
   `stock` INT ,
   `descripcion` VARCHAR(255) ,
-  `color` VARCHAR(45) ,
+   `color` VARCHAR(45) ,
   `medida` DECIMAL(11,2) ,
   `imagen` VARCHAR(45),
   `costo_venta` DECIMAL(11,2),
+  `costo_compra` DECIMAL(11,2),
   `estado` VARCHAR(45) ,
   PRIMARY KEY (`idproducto`),
   CONSTRAINT `fk_producto_categoria1`
@@ -150,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `elgreco`.`comprobante_pago` (
   `idforma_pago` INT ,
   `precio_venta` DECIMAL(11,2) ,
   `cantidad` INT ,
-  PRIMARY KEY (`idcomprobante_pago`),
+  PRIMARY KEY (`idcomprobante_pago`, `idforma_pago`),
   INDEX `fk_comprobante_pago_forma_pago1_idx` (`idforma_pago` ASC) VISIBLE,
   CONSTRAINT `fk_comprobante_pago_forma_pago1`
     FOREIGN KEY (`idforma_pago`)
@@ -178,8 +177,6 @@ CREATE TABLE IF NOT EXISTS `elgreco`.`venta` (
   `anticipo` DECIMAL (11,2) ,
   `adeudo` DECIMAL(11,2) ,
   `IVA` DECIMAL(11,2),
-  `valorUnitario` DECIMAL (11,2) ,
-  `descripcion` VARCHAR(255) ,
   `subtotal` DECIMAL(11,2) ,
   PRIMARY KEY (`idventa`),
   INDEX `fk_venta_cliente1_idx` (`idcliente` ASC) VISIBLE,
@@ -239,9 +236,6 @@ DROP TABLE IF EXISTS `elgreco`.`compras` ;
 CREATE TABLE IF NOT EXISTS `elgreco`.`compras` (
   `idcompras` INT NOT NULL AUTO_INCREMENT,
   `idproveedor` INT,
-  `codigo` INT ,
-  `nombre` VARCHAR(45),
-  `descripcion` VARCHAR(255) ,
   `hora` TIME ,
   `fecha_compra` DATE ,
   `total` DECIMAL(11,2) ,
@@ -292,6 +286,8 @@ CREATE TABLE IF NOT EXISTS `elgreco`.`detalle_venta` (
   `cantidad` INT ,
   `precio_venta` DECIMAL(11,2) ,
   `descuento` DECIMAL(11,2) ,
+  `ancho` DECIMAL(11,2) ,
+  `largo` DECIMAL(11,2) ,
   `idventa` INT ,
   PRIMARY KEY (`iddetalle_venta`),
   INDEX `fk_detalle_venta_producto1_idx` (`idproducto` ASC) VISIBLE,

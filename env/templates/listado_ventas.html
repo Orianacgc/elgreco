@@ -1,0 +1,189 @@
+{% extends './index.html' %}
+
+{% block titulo %}
+Agregar venta
+{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<form class>
+ 
+   
+  
+  <!--Main Navigation-->
+ 
+  <!--Main layout-->
+  <main style="margin-top: 0px;">
+    <div class="container pt-4 ">
+        <h4 class="text-start">Listado de ventas</h4>
+        <p class="text-start">Administrar ventas</p>
+    </div>
+    <div class="container">
+      <form class="form-inline">
+        <div class="row ">
+          <div class="col-auto">
+                <label class="sr-only" for="inlineFormInputName2">Mostrar</label>
+          </div>
+            
+          <div class="col-1">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="número">
+            
+          </div>
+                
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputName2">registros</label>
+          </div>   
+
+
+          
+          <div class="col-auto">
+
+           
+               
+            <button  type="button" class="btn btn-success">
+              <a href="{{url_for('formulario_agregar_venta')}}" class="bi bi-plus-circle-fill text-light "></a> Nueva Venta
+            </button>
+           
+           
+         </div>
+         
+        </div>
+
+        <hr style="color: #595959;" />
+        
+      </form>
+    </div>
+    
+    <div class="w-100"></div>
+  
+    <br /> 
+   	
+	
+    <div class="container"> 
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Cant.</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Prcio Unit.</th>
+                <th scope="col">Total</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for usuario in usuarios %}
+              <tr>
+                <td>{{venta[0]}}</td>
+                <td>{{venta[1]}}</td>
+                <td>{{venta[3]}}</td>
+                <td>{{venta[4]}}</td>
+              
+                <td>
+
+                  {{venta[5]}}
+                  
+                  {% if(usuario.imagen !="") %}
+                  <img src="{{ url_for }}{{ usuario.imagen }}" class="sin_foto_mini" alt="{{ usuario.usuario }}">
+                  {% else %}
+                  <img src="{{ url_for }}sin_foto.jpg" class="sin_foto_mini" alt="coche">
+                  {% endif %}
+                </td>
+
+                <td>
+                  <button type="button" class="btn btn-success" style='width:100px; height:40px'>
+                    
+                    <i class=" text-light "></i> {{venta[6]}}
+                </button>
+                </td>
+            
+                <td>
+                   
+                </td>
+
+                <td>
+                  {{venta[7]}}  
+                </td>
+
+
+                <td>
+                  <div class="row justify-content-center">
+                  
+
+                    <div class="col-auto">
+                      <button  class="btn btn btn-warning"><a href="{{url_for('editar_usuario', idUsuario=usuario[0])}}"  class="bi bi-pencil-square"></a></button>
+                    </div>
+
+
+                    <div class="col-auto">
+                    
+                     <form action="{{url_for('eliminar_usuario')}}" method="POST">
+
+                      
+                      <input type="hidden" name="idUsuario" value="{{usuario[0]}}">
+                      
+                            <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                       
+                  
+                     </form>
+                    </div>
+                  
+                  </div>
+                
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link">Anterior</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-secondary">
+                            <i class="bi bi-download text-light "></i> Descargar Reporte
+                          </button>
+                       
+                    </div>
+                     
+                
+              
+               
+    
+          
+    
+
+    </div>
+
+      
+   
+          
+          
+          <br /> 
+         
+        </form>
+      </div>
+      
+    
+    
+    
+  </main>
+  <!--Main layout-->
+</form>
+{% endblock %}

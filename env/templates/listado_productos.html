@@ -72,7 +72,6 @@ Agregar venta
                 <th scope="col">Descripción</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Stock</th>
-                <th scope="col">Material</th>
                 <th scope="col">Color</th>
                 <th scope="col">Foto</th>
                 <th scope="col">Estado</th>
@@ -88,24 +87,38 @@ Agregar venta
                   <td>{{producto[4]}}</td>
                   <td>{{producto[8]}}</td>
                   <td>{{producto[3]}}</td>
-                  <td>{{producto[7]}}</td>
-                  <td></td>
+                  <td>{{producto[5]}}</td>
                  
               
-                <td><img style='width:40px; height:40px' src="..." class="rounded mx-auto d-block" alt="..."></td>
+                <td>{{producto[7]}}</td>
                 <td>
                   <button type="button" class="btn btn-success" style='width:100px; height:40px'>
                     <i class=" text-light "></i> {{producto[9]}}
                 </button>
                 </td>
                 <td>  
+
                   <div class="row justify-content-center">
+                  
+
                     <div class="col-auto">
-                        <button  class="btn btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                      <button  class="btn btn btn-warning"><a href="{{url_for('editar_producto', idproducto=producto[0])}}"  class="bi bi-pencil-square"></a></button>
                     </div>
+
+
                     <div class="col-auto">
-                        <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                    
+                     <form action="{{url_for('eliminar_producto')}}" method="POST">
+
+                      
+                      <input type="hidden" name="idproducto" value="{{producto[0]}}">
+                      
+                            <button  class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                       
+                  
+                     </form>
                     </div>
+                  
                   </div>
                 </td>
               </tr>
