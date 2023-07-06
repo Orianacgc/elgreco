@@ -1,24 +1,22 @@
 {% extends './index.html' %}
 {% block title %}{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grid</title>
+
   {% block customCSS %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/venta.css') }}">
 {% endblock %}
-</head>
-{% block body %}
-<body>
-    <div class="container-fluid">
+
+{% block contenido %}
+
+
+<main style="margin-top: 0px;">
+    <div class="container pt-6">
+   
         <div class="row"> 
 
             <div class="col-6">
                 <div class="p-1 mb-2 bg-dark text-white"><h3>Ticket-Total Venta $</h3></div>
-                <form method="post" action="nuevo.php">
+                <form>
 
 
                     <a class="navbar-brand " href="#" >
@@ -55,10 +53,11 @@
 
                                 </div>
                             </div>
-                           
-                            <li>ID Cliente:</li>
+                            {% for cliente in clientes %}
+                            <li>ID Cliente:  <h5>{{cliente[0]}}</h5> </li>
                             <li>Cliente:</li>
                             <li>Teléfono:</li>
+                            {% endfor %}
                             <li>Fecha entrega:</li>
                         </ul>
                     </div>
@@ -125,13 +124,9 @@
                    
                 </form>
             </div>
-
         </div>
         
     </div>
+</main>
         
-
-
-</body>
 {% endblock %}
-</html>

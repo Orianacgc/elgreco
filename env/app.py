@@ -6,7 +6,7 @@ app=Flask(__name__, template_folder='Templates')
 
 @app.route('/')
 def main():
-    return render_template('listado_productos.html')
+    return render_template('ticket.html')
 
 
 @app.route("/principal")
@@ -183,10 +183,11 @@ def actualizar_producto():
     medida = request.form["medida"]
     imagen = request.form["imagen"]
     costo_venta = request.form["costo_venta"]
+    costo_compra = request.form["costo_compra"]
     estado = request.form["estado"]
     
 
-    controlador_productos.actualizar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,estado,idproducto)
+    controlador_productos.actualizar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,costo_compra,estado,idproducto)
     return redirect("/productos")
 
 @app.route("/guardar_producto", methods=["POST"])
@@ -199,10 +200,11 @@ def guardar_producto():
     medida = request.form["medida"]
     imagen = request.form["imagen"]
     costo_venta = request.form["costo_venta"]
+    costo_compra = request.form["costo_compra"]
     estado = request.form["estado"]
     categoria =request.form["categoria"]
 
-    controlador_productos.insertar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,estado,categoria)
+    controlador_productos.insertar_producto(codigo,nombre,stock,descripcion,color,medida,imagen,costo_venta,costo_compra,estado,categoria)
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/productos")
 
@@ -255,7 +257,7 @@ def guardar_venta():
 
     fecha_venta = request.form["fecha_venta"]
     fecha_entrega = request.form["fecha_entrega"]
-    total_venta = request.form["total_venta"]
+    total_venta = request.form["txtprecioventa"]
     hora = request.form["hora"]
     anticipo = request.form["anticipo"]
     adeudo = request.form["adeudo"]
@@ -382,6 +384,10 @@ def guardar_compra():
     return redirect("/compras")
 
 
+
+@app.route("/ticket")
+def formulario_ticket():
+    return render_template("ticket.html")
 
 #------------Proveedores-------------#
 
