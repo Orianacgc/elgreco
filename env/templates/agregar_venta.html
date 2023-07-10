@@ -45,134 +45,10 @@ Agregar venta
         <h4 class="text-start">Punto de Venta</h4>
       </div>
       <form  action="{{url_for('guardar_venta')}}" method="POST">
-      <form class="form-inline">
-        <div class="row g-3 align-items-center">
-          <div class="col-auto">
-                <label class="sr-only" for="inlineFormInputName2">Cliente*</label>
-          </div>
-            
-          
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
-            </div>
-
-            <select name="cliente" id="cliente">
-              {% for cliente in clientes %}
-              <option value= '{{cliente[0]}}'>{{cliente[1]}} {{cliente[2]}} {{cliente[3]}}</option>
-              {% endfor %}
-            </select>
-          
-                
-        </div>
-         
-        </div>
-        <div class="w-100"></div>
-        <br />  
-        <dvi class="row"> 
-
-          <div class="col-auto">
-              <label class="sr-only" for="inlineFormInputName2">Fecha de venta:
-                
-              </label>
-          </div>
-
-          <div class="col-5">
-            <label class="sr-only" for="inlineFormInputName2">Fecha de entrega:
-              
-            </label>
-        </div>
-
-  
-          <div class="col-auto">
-          
-            <button type="button" class="btn btn-success">
-              <a href="{{url_for('formulario_ticket')}}"  class="bi bi-cart-check-fill text-light "></a> Realizar Venta
-          </button>
-            
-          </div>
-
-
-        
-
-          <div class="col-auto">
-          
-            <button type="button" class="btn btn-dark">
-              <i class="bi bi-file-earmark-check-fill"></i> <a  href="{{url_for('formulario_agregar_cotizacion')}}" >Realizar Cotización</a>
-            </button>
-            
-          </div>
-        
-      </form>
-    </div>
-
       
-     
-
-      <div class="container">
-
-        <div class="col py-3">
-          <h4 class="text-start">Medidad (cm)</h4>
-        </div>
-
-        <form class="row g-3 mt -3">
-          
-          <div class="col-1">
-            <label class="form-check-label" for="txtancho">Ancho (cm):</label>
-          
-          </div>
-          <div class="col-2">
-            <input type="text" class="form-control" id="txtancho" placeholder="Ancho">
-          </div>
-
-          <div class="col-1">
-            <label class="form-check-label" for="txtlargo">Largo (cm):</label>
-           
-          </div>
-          <div class="col-2">
-            <input type="text" class="form-control" id="txtlargo" placeholder="Largo">
-          </div>
-
-          <div class="col-1">
-            <label class="form-check-label" for="txtlargo">Cantidad:</label>
-           
-          </div>
-          <div class="col-1">
-            <input type="text" class="form-control" id="txtcant" placeholder="Cant">
-          </div>
-
-
-          <div class="row g-3 align-items-center">
-            
-            <div class="col-auto">
-                  <label class="sr-only" for="inlineFormInputName2"><h3>Perfil</h3></label>
-            </div>
-            
-            <div class="row g-3 align-items-center">
-              <div class="col-2">
-                  <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-tag-fill"></i></span>
-                      </div>
-                      <select name="selperfil" id="selperfil">
-                        {% for producto in productos %}
-                        {% if (producto[11] == "Perfil") %}
-                        <option value= '{{producto[0]}}'>{{producto[2]}} {{producto[5]}}</option>
-                        {% endif %}
-                        {% endfor %}
-                      </select>
-                  </div>
-              </div>
-              
-            
-
-
-  
-          
-
           <div class="row g-3 align-items-center">
             <div class="col-auto">
-                  <label class="sr-only" for="inlineFormInputName2"><h3>Vidrio</h3></label>
+                  <label class="sr-only" for="inlineFormInputName2">Cliente*</label>
             </div>
               
             
@@ -180,143 +56,287 @@ Agregar venta
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
               </div>
-  
-              <select name="selvidrio" id="selvidrio">
-                {% for producto in productos %}
-                {% if (producto[11] == "Vidrio") %}
-                <option value= '{{producto[0]}}'>{{producto[2]}} </option>
-                {% endif %}
+
+              <select name="cliente" id="cliente">
+                {% for cliente in clientes %}
+                <option value= '{{cliente[0]}}'>{{cliente[1]}} {{cliente[2]}} {{cliente[3]}}</option>
                 {% endfor %}
               </select>
-            </div>
-                  
-          </div>
-
-
-          <div class="row g-3 align-items-center">
-            <div class="col-auto">
-                  <label class="sr-only" for="inlineFormInputName2"><h3>María Luisa</h3></label>
-            </div>
-              
             
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
-              </div>
-  
-              <select name="selml" id="selml">
-                {% for producto in productos %}
-                {% if (producto[11] == "M/L") %}
-                <option value= '{{producto[0]}}'>{{producto[1]}} </option>
-                {% endif %}
-                {% endfor %}
-              </select>
-            </div>
                   
           </div>
-
-          <div class="row g-3 align-items-center">
-            <div class="col-auto">
-                  <label class="sr-only" for="inlineFormInputName2"><h3>Soporte</h3></label>
-            </div>
-              
-            
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
-              </div>
-  
-              <select name="selsoporte" id="selsoporte">
-                {% for producto in productos %}
-                {% if (producto[11] == "Soporte") %}
-                <option value= '{{producto[0]}}'>{{producto[2]}} </option>
-                {% endif %}
-                {% endfor %}
-              </select>
-            </div>
-                  
+          
           </div>
-           
-        </div>
-          
-
-          <div class="d-grid gap-2 d-md-flex ">
-            <div class=" text-start   col-1">
-              <button type="button" class="btn btn-primary" id="btnCalcular">
-                <i class="bi bi-calculator"></i> Calcular
-              </button>
-            </div>
-     
-          </div>
-          
-             
-       
-
-          
-
           <div class="w-100"></div>
           <br />  
+          <dvi class="row"> 
 
-        
-        <dvi class="row">
+            <div class="col-2">
+                <label class="sr-only" for="inlineFormInputName2">Fecha de venta:</label>
+            </div>
             
             <div class="col-2">
-              <h5 class="text-start .font-weight-bold"><p><strong>Precio de la Venta</strong></p></h5>
+              <input type="text" class="form-control" id="txtfechaventa" placeholder="Día de venta">
+            </div>
+
+            <div class="col-2">
+              <label class="sr-only" for="inlineFormInputName2">Fecha de entrega:</label>
+            </div>
+
+            <div class="col-2">
+              <input type="text" class="form-control" id="txtfechaentrega" placeholder="Día de entrega">
+            </div>
+
+
+    
+            <div class="col-auto">
+            
+              <button type="button" class="btn btn-success">
+                <a href="{{url_for('formulario_ticket')}}"  class="bi bi-cart-check-fill text-light "></a> Realizar Venta
+            </button>
+              
+            </div>
+
+
+          
+
+            <div class="col-auto">
+            
+              <button type="button" class="btn btn-dark">
+                <i class="bi bi-file-earmark-check-fill"></i> <a  href="{{url_for('formulario_agregar_cotizacion')}}" >Realizar Cotización</a>
+              </button>
+              
+            </div>
+          
+        
+          </div>
+
+        
+      
+
+        <div class="container">
+
+          <div class="col py-3">
+            <h4 class="text-start">Medidad (cm)</h4>
+          </div>
+
+          <form class="row g-3 mt -3">
+
+            <div class="row">
+
+              <div class="col-1">
+                <label class="form-check-label" for="txtancho">Ancho(cm):</label>
+              
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" id="txtancho" placeholder="Ancho">
+              </div>
+  
+              <div class="col-1">
+                <label class="form-check-label" for="txtlargo">Largo(cm):</label>
+              
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" id="txtlargo" placeholder="Largo">
+              </div>
+  
+              <div class="col-1">
+                <label class="form-check-label" for="txtlargo">Cantidad:</label>
+              
+              </div>
+              <div class="col-1">
+                <input type="text" class="form-control" id="txtcant" placeholder="Cant">
+              </div>
+  
+
+            </div>
+            
+           
+
+            <div class="row g-3 align-items-center">
+              
+              <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputName2"><h3>Perfil</h3></label>
+              </div>
+              
+              <div class="row g-3 align-items-center">
+                <div class="col-2">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-tag-fill"></i></span>
+                        </div>
+                        <select name="selperfil" id="selperfil">
+                          {% for producto in productos %}
+                          {% if (producto[11] == "Perfil") %}
+                          <option value= '{{producto[0]}}'>{{producto[2]}} {{producto[5]}}</option>
+                          {% endif %}
+                          {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+              
+
+
+    
+            
+
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputName2"><h3>Vidrio</h3></label>
+              </div>
+                
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+                </div>
+    
+                <select name="selvidrio" id="selvidrio">
+                  {% for producto in productos %}
+                  {% if (producto[11] == "Vidrio") %}
+                  <option value= '{{producto[0]}}'>{{producto[2]}} </option>
+                  {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+                    
+            </div>
+
+
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputName2"><h3>María Luisa</h3></label>
+              </div>
+                
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+                </div>
+    
+                <select name="selml" id="selml">
+                  {% for producto in productos %}
+                  {% if (producto[11] == "M/L") %}
+                  <option value= '{{producto[0]}}'>{{producto[1]}} </option>
+                  {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+                    
+            </div>
+
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputName2"><h3>Soporte</h3></label>
+              </div>
+                
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-people-fill"></i></span>
+                </div>
+    
+                <select name="selsoporte" id="selsoporte">
+                  {% for producto in productos %}
+                  {% if (producto[11] == "Soporte") %}
+                  <option value= '{{producto[0]}}'>{{producto[2]}} </option>
+                  {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+                    
+            </div>
+          </form>
+          </div>
+            
+
+            <div class="d-grid gap-2 d-md-flex ">
+              <div class=" text-start   col-1">
+                <button type="button" class="btn btn-primary" id="btnCalcular">
+                  <i class="bi bi-calculator"></i> Calcular
+                </button>
+              </div>
+      
+            </div>
+            
+              
+        
+
+            
+
+            <div class="w-100"></div>
+            <br />  
+
+          
+          <dvi class="row">
+              
+              <div class="col-2">
+                <h5 class="text-start .font-weight-bold"><p><strong>Precio de la Venta</strong></p></h5>
+              </div>
+              <div class=" col-1">
+                <input type="text" class="form-control" id="txtprecioventa" placeholder="$">
+              </div>
+          </dvi>
+          <br />  
+
+          <dvi class="row">
+              
+            <div class="col-2">
+              <h5 class="text-start .font-weight-bold"><p><strong>Anticipo</strong></p></h5>
             </div>
             <div class=" col-1">
-              <input type="text" class="form-control" id="txtprecioventa" placeholder="$">
+              <input type="text" class="form-control" id="txtanticipo" placeholder="$">
             </div>
         </dvi>
         <br />  
 
         <dvi class="row">
-            
+              
           <div class="col-2">
-            <h5 class="text-start .font-weight-bold"><p><strong>Anticipo</strong></p></h5>
+            <h5 class="text-start .font-weight-bold"><p><strong>Adeudo</strong></p></h5>
           </div>
           <div class=" col-1">
-            <input type="text" class="form-control" id="txtanticipo" placeholder="$">
+            <input type="text" class="form-control" id="txtadeudo" placeholder="$">
           </div>
-      </dvi>
-      <br />  
-
-      <dvi class="row">
-            
-        <div class="col-2">
-          <h5 class="text-start .font-weight-bold"><p><strong>Adeudo</strong></p></h5>
-        </div>
-        <div class=" col-1">
-          <input type="text" class="form-control" id="txtadeudo" placeholder="$">
-        </div>
-    </dvi>
-        
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
+        </dvi>
           
-            <button type="button" class="btn btn-success">
-                <i class="bi bi-plus text-light"></i> Agregar
-            </button>
-            <button type="button" class="btn btn-danger">
-                <i class="bi bi-trash text-light"></i> Eliminar
-            </button>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
             
-          </div>
+              <button type="submit" class="btn btn-success">
+                  <i class="bi bi-plus text-light"></i> Agregar
+              </button>
+              <button type="button" class="btn btn-danger">
+                  <i class="bi bi-trash text-light"></i> Eliminar
+              </button>
 
-       
-           
+              
+            </div>
 
-      
+            <input type ='hidden' id="cantperfil">
+            <input type = 'hidden' id="totalperfil">
+            
+            <input type ='hidden' id="cantvidrio">
+            <input type = 'hidden' id="totalvidrio">
 
-          <div class="form-floating col-6">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">Observasiones</label>
-          </div>
+            <input type ='hidden' id="cantml">
+            <input type = 'hidden' id="totalml">
 
-          <div class="w-100"></div>
-          <br /> 
-         
-        </form>
+            <input type ='hidden' id="cantsoporte">
+            <input type = 'hidden' id="totalsoporte">
+
+        
+
+            <div class="form-floating col-6">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+              <label for="floatingTextarea">Observasiones</label>
+            </div>
+
+            <div class="w-100"></div>
+            <br /> 
+        
+      </form>
       </div>
       
     
@@ -326,9 +346,10 @@ Agregar venta
   <!--Main layout-->
 </form>
 <script>
+  let precioVenta=0
   const btnCalcular=document.getElementById('btnCalcular');
   btnCalcular.addEventListener('click',()=>{
-    let precioVenta=0
+    
     let txtlargo=parseFloat(document.getElementById('txtlargo').value);
     let txtancho=parseFloat(document.getElementById('txtancho').value);
     let txtcant=parseFloat(document.getElementById('txtcant').value);
@@ -342,8 +363,14 @@ Agregar venta
       if (prods[i].id==selperfil){
         console.log(prods[i]);
         precioVenta+= (txtlargo+txtancho)*2;
+
+        let cantperfil=document.getElementById("cantperfil");
+        cantperfil.value=txtlargo+txtancho*2;
+        let totalperfil=document.getElementById("totalperfil");
+        
         console.log("medida" + precioVenta)
         precioVenta=precioVenta*prods[i].precioventa/100;
+        totalperfil.value=precioVenta;
         console.log(precioVenta);
       }
     }
@@ -355,10 +382,17 @@ Agregar venta
         let preciovidrio=0
         console.log(prods[i]);
         preciovidrio+= (txtlargo*txtancho)*2*.01;
+
+        let cantvidrio=document.getElementById("cantvidrio");
+        cantvidrio.value=txtlargo*txtancho*2*.01;
+        let totalvidrio=document.getElementById("totalvidrio");
+
+      
         console.log("medida" + preciovidrio)
         preciovidrio=preciovidrio*prods[i].precioventa/100;
         console.log("precio de vidrio " + preciovidrio)
         precioVenta+=preciovidrio;
+        totalvidrio.value=precioVenta;
         console.log(precioVenta);
       }
     }
@@ -371,10 +405,16 @@ Agregar venta
         let precioml=0
         console.log(prods[i]);
         precioml+= (txtlargo*txtancho)*2*.01;
+
+        let cantml=document.getElementById("cantml");
+        cantml.value=txtlargo*txtancho*2*.01;
+        let totalml=document.getElementById("totalml");
+
         console.log("medida" + precioml)
         precioml=precioml*prods[i].precioventa/100;
         console.log("precio de m/l " + precioml)
         precioVenta+=precioml;
+        totalml.value=precioVenta;
         console.log(precioVenta);
       }
     }
@@ -384,10 +424,15 @@ Agregar venta
         let selsoporte=document.getElementById('selsoporte').value;
     for (let i=0;i<prods.length;i++){
       if (prods[i].id==selsoporte){
-        let preciosoporte=30
+        let preciosoporte=0
         console.log("precio del soporte " + preciosoporte)
         precioVenta+=preciosoporte;
+
+        let cantsoporte=document.getElementById("cantsoporte");
+        let totalsoporte=document.getElementById("totalsoporte");
+
         precioVenta=precioVenta*txtcant;
+        totalsoporte.value=precioVenta;
         console.log(precioVenta);
       }
     }
@@ -401,15 +446,15 @@ Agregar venta
   })
 
   const txtanticipo=document.getElementById('txtanticipo');
-  txtanticipo.addEventListener('onBlur',()=>{
-
-  //let txtanticipo=parseFloat(document.getElementById('txtanticipo').value);
-  console.log("el anticipo es" + txtanticipo)
+  txtanticipo.addEventListener('blur',()=>{
+    
+    console.log("el anticipo es" + txtanticipo.value)
  
     let precioadeudo=0
     
-    precioadeudo = precioVenta-txtanticipo
-
+    precioadeudo = precioVenta-parseInt(txtanticipo.value)
+    let txtadeudo=document.getElementById('txtadeudo');
+    txtadeudo.value=precioadeudo
     console.log("ADEUDO:"+precioadeudo);
 })
 

@@ -254,16 +254,28 @@ def actualizar_venta():
 
 @app.route("/guardar_venta", methods=["POST"])
 def guardar_venta():
+    print("111")
 
+    txtancho= request.form["txtancho"]
+    txtlargo= request.form["txtlargo"]
+    selperfil= request.form["selperfil"]
+    selvidrio= request.form["selvidrio"]
+    selml= request.form["selml"]
+    selsoporte= request.form["selsoporte"]
+    txtprecioventa= request.form["txtprecioventa"]
+    txtanticipo= request.form["txtanticipo"]
+    txtadeudo= request.form["txtadeudo"]
+    txtcant= request.form["txtcant"]
+    idcliente= request.form["cliente"]
     fecha_venta = request.form["fecha_venta"]
-    fecha_entrega = request.form["fecha_entrega"]
+    txtfechaentrega = request.form["txtfechaentrega"]
     total_venta = request.form["txtprecioventa"]
     hora = request.form["hora"]
-    anticipo = request.form["anticipo"]
-    adeudo = request.form["adeudo"]
+    IVA = request.form["IVA"]
     subtotal = request.form["subtotal"]
 
-    controlador_ventas.insertar_venta(fecha_venta,fecha_entrega,total_venta,hora,anticipo,adeudo,subtotal)
+    controlador_ventas.insertar_venta(fecha_venta,txtfechaentrega,total_venta,hora,txtanticipo,txtadeudo,IVA,subtotal,txtancho,txtlargo,selperfil,selvidrio,selml,selsoporte,txtprecioventa,txtcant,idcliente)
+    
     # De cualquier modo, y si todo fue bien, redireccionar
     return redirect("/ventas")
 
